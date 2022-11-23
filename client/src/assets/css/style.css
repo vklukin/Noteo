@@ -1,0 +1,139 @@
+/*
+
+Legend:
+1. fonts
+2. Color variables
+3. global
+
+Components:
+4. header
+5. aside
+
+*/
+@font-face {
+  font-family: "Inter-R";
+  font-weight: 400;
+  src: url("../fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Inter-M";
+  font-weight: 500;
+  src: url("../fonts/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: "Inter-SB";
+  font-weight: 600;
+  src: url("../fonts/Inter-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Inter-B";
+  font-weight: 700;
+  src: url("../fonts/Inter-Bold.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+p, h1, h2, h3, h4, a, textarea, input {
+  color: #2E0700;
+}
+
+p {
+  font-family: "Inter-R", sans-serif;
+}
+
+.mainHeader {
+  height: 3.75em;
+  padding: 0.75em 0.94em;
+  box-shadow: 0 1px 3px 0px rgb(218, 218, 218);
+  display: flex;
+  align-items: center;
+}
+.mainHeader__asideHamburger {
+  width: 180px;
+  height: 100%;
+}
+.mainHeader__asideHamburger button {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mainHeader__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+.mainHeader__content label {
+  position: relative;
+  height: 100%;
+}
+.mainHeader__content label img {
+  position: absolute;
+  top: 5px;
+  margin: 0 5px;
+}
+.mainHeader__content label input {
+  font-size: 1em;
+  color: #2E0700;
+  width: 300px;
+  height: 100%;
+  padding-left: 44px;
+  border: 1px solid #2E0700;
+  border-radius: 5px;
+}
+.mainHeader__content label input::-moz-placeholder {
+  color: #C2C2C2;
+}
+.mainHeader__content label input:-ms-input-placeholder {
+  color: #C2C2C2;
+}
+.mainHeader__content label input::placeholder {
+  color: #C2C2C2;
+}
+.mainHeader__appName {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+.mainHeader__appName svg {
+  margin-left: -250px;
+}
+.mainHeader__appName p {
+  font-size: 28px;
+}
+.mainHeader__avatar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.mainHeader__avatar .avatar {
+  height: 36px;
+  width: 36px;
+  border-radius: 50px;
+  background: #C2C2C2;
+}
+
+aside {
+  height: 100%;
+  width: 180px;
+  display: block;
+}/*# sourceMappingURL=style.css.map */
