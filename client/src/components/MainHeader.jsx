@@ -1,19 +1,19 @@
 import Logo from '../assets/images/Logo.js';
 import Arrow from '../assets/images/mainpage/Arrow';
 import Ham from '../assets/images/mainpage/hamburger'
-import Search from '../assets/images/mainpage/searchIcon.png'
+import Search from '../assets/images/mainpage/icons/searchIcon.png'
 
 
 const MainHeader = () => {
     return (
         <header className='mainHeader'>
             <div className="mainHeader__asideHamburger">
-                <button><Ham /></button>
+                <button id="sidebarButton"><Ham/></button>
             </div>
             <div className="mainHeader__content">
                 <label>
-                    <img src={Search} alt="Search" />
-                    <input type="text" placeholder='Поиск' />
+                    <img src={Search} alt="Search"/>
+                    <input type="text" placeholder='Поиск'/>
                 </label>
                 <div className="mainHeader__appName">
                     <Logo/>
@@ -21,7 +21,7 @@ const MainHeader = () => {
                 </div>
                 <div className="mainHeader__avatar">
                     <div className="avatar"></div>
-                    <Arrow />
+                    <Arrow/>
                 </div>
             </div>
         </header>

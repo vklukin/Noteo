@@ -13,22 +13,22 @@ Components:
 @font-face {
   font-family: "Inter-R";
   font-weight: 400;
-  src: url("../fonts/Inter-Regular.ttf");
+  src: url("../fonts/Inter-Regular.woff2");
 }
 @font-face {
   font-family: "Inter-M";
   font-weight: 500;
-  src: url("../fonts/Inter-Medium.ttf");
+  src: url("../fonts/Inter-Medium.woff2");
 }
 @font-face {
   font-family: "Inter-SB";
   font-weight: 600;
-  src: url("../fonts/Inter-SemiBold.ttf");
+  src: url("../fonts/Inter-SemiBold.woff2");
 }
 @font-face {
   font-family: "Inter-B";
   font-weight: 700;
-  src: url("../fonts/Inter-Bold.ttf");
+  src: url("../fonts/Inter-Bold.woff2");
 }
 * {
   margin: 0;
@@ -56,9 +56,10 @@ p {
 .mainHeader {
   height: 3.75em;
   padding: 0.75em 0.94em;
-  box-shadow: 0 1px 3px 0px rgb(218, 218, 218);
+  box-shadow: 0 1px 3px 0 rgb(218, 218, 218);
   display: flex;
   align-items: center;
+  z-index: 99;
 }
 .mainHeader__asideHamburger {
   width: 180px;
@@ -86,6 +87,7 @@ p {
   position: absolute;
   top: 5px;
   margin: 0 5px;
+  pointer-events: none;
 }
 .mainHeader__content label input {
   font-size: 1em;
@@ -95,12 +97,6 @@ p {
   padding-left: 44px;
   border: 1px solid #2E0700;
   border-radius: 5px;
-}
-.mainHeader__content label input::-moz-placeholder {
-  color: #C2C2C2;
-}
-.mainHeader__content label input:-ms-input-placeholder {
-  color: #C2C2C2;
 }
 .mainHeader__content label input::placeholder {
   color: #C2C2C2;
@@ -135,5 +131,41 @@ p {
 aside {
   height: 100%;
   width: 180px;
+  padding: 15px;
   display: block;
-}/*# sourceMappingURL=style.css.map */
+  float: left;
+  position: relative;
+  box-shadow: 1px 2px 3px 0 rgb(218, 218, 218);
+}
+aside .mainCategories {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #C2C2C2;
+  padding-bottom: 10px;
+}
+aside .mainCategories button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  outline: none;
+  background: none;
+  border: none;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+aside .mainCategories button p {
+  font-size: 20px;
+  margin-left: 28px;
+}
+aside .mainCategories button svg {
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/*# sourceMappingURL=style.css.map */

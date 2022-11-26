@@ -1,11 +1,13 @@
-// import Aside from "../components/Aside";
+import Aside from "../components/Aside";
 import MainHeader from "../components/MainHeader";
 
 
-const MainPage = ()=>{
+const MainPage = () => {
     return (
-        // <Aside />   
-        <MainHeader />
+        <>
+            <MainHeader/>
+            <Aside/>
+        </>
     );
 }
 
