@@ -147,6 +147,8 @@ p {
 
     p {
       font-size: 28px;
+      pointer-events: none;
+      user-select: none;
     }
   }
 
@@ -182,6 +184,7 @@ aside {
 
   box-shadow: 1px 2px 3px 0 rgb(218, 218, 218);
 
+
   .mainCategories {
     display: flex;
     align-items: flex-start;
@@ -191,8 +194,25 @@ aside {
     width: 100%;
     height: auto;
 
-    border-bottom: 1px solid $placeholder-color;
-    padding-bottom: 10px;
+    hr {
+      width: 100%;
+      height: 1px;
+      background-color: $placeholder-color;
+      margin: 10px 0;
+    }
+
+    .btn__active {
+      background-color: rgba(237, 154, 0, 0.28);
+    }
+
+    &__wrapper {
+      width: 100%;
+
+      .btn__favourite svg {
+        margin-left: -2px;
+        overflow: visible;
+      }
+    }
 
     button {
       display: flex;
@@ -203,20 +223,17 @@ aside {
       background: none;
       border: none;
 
-      margin-bottom: 10px;
-      position: relative;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+
+      width: 100%;
+      border-radius: 150px;
 
       cursor: pointer;
 
       p {
-        font-size: 20px;
-        margin-left: 28px;
-      }
-
-      svg {
-        position: absolute;
-        left: 0;
-        top: 2px;
+        font-size: 18px;
+        pointer-events: none;
       }
     }
   }
