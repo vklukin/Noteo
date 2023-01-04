@@ -2,14 +2,17 @@ import NewNote from "../assets/images/mainpage/icons/newNote";
 import Plus from "../assets/images/mainpage/icons/plus";
 
 const Board = () => {
+
     return (
         <main className="board">
             <div className="board__controls">
-                <button className="newNote">
-                    <NewNote/>
-                    <p>Новая заметка</p>
-                    <Plus/>
-                </button>
+                <form action="/create" method="get">
+                    <button className="newNote">
+                        <NewNote/>
+                        <p>Новая заметка</p>
+                        <Plus/>
+                    </button>
+                </form>
                 {/*  Тут должна быть сортировка  */}
             </div>
 

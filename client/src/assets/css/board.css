@@ -1,0 +1,56 @@
+.board {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+.board__controls {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+}
+.board__controls .newNote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 260px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #2E0700;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.board__controls .newNote p {
+  font-size: 1.3em;
+}
+.board__controls .newNote:hover {
+  background-color: #f1f1f1;
+}
+.board .content__wrapper {
+  max-width: 100%;
+  height: auto;
+  display: grid;
+  position: relative;
+  margin: 20px;
+  padding: 20px;
+  outline: 1px solid #000;
+}
+.board .content__wrapper .card {
+  width: 160px;
+  height: 220px;
+  outline: 1px solid #C2C2C2;
+}
+.board .content__wrapper .card:last-child {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=board.css.map */

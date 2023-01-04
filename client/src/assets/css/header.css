@@ -1,0 +1,32 @@
+.mainHeader {
+  height: 3.75em;
+  padding: 0.75em 0.94em;
+  box-shadow: 0 1px 3px 0 rgb(218, 218, 218);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+}
+.mainHeader__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+.mainHeader__appName {
+  height: 100%;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.mainHeader__appName p {
+  font-size: 28px;
+}
+
+/*# sourceMappingURL=header.css.map */

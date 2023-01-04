@@ -1,0 +1,74 @@
+@import "colors";
+
+//board
+.board {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  &__controls {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    background-color: #fff;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+
+    .newNote {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height: 60px;
+      width: 260px;
+      padding: 15px;
+
+      border-radius: 5px;
+      border: 1px solid $base-text-color;
+      outline: none;
+      background-color: #fff;
+
+      cursor: pointer;
+      transition: all .1s ease-in;
+
+      p {
+        font-size: 1.3em;
+      }
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  .content__wrapper {
+    max-width: 100%;
+    height: auto;
+
+    display: grid;
+    position: relative;
+
+    margin: 20px;
+    padding: 20px;
+
+    outline: 1px solid #000;
+
+    .card {
+      width: 160px;
+      height: 220px;
+      outline: 1px solid #C2C2C2;
+
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
