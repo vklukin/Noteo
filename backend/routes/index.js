@@ -1,5 +1,7 @@
-const mainRoutes = require('./main');
+const getRequest = require('./get')
+// const postRequest = require('./post')
 
 module.exports = function (app) {
-    mainRoutes(app)
+    getRequest(app)
+    // postRequest(app)
 }
