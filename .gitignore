@@ -23,3 +23,5 @@ yarn-error.log*
 
 /backend/node_modules
 /client/node_modules
+
+.idea
