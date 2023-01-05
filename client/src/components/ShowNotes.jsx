@@ -1,7 +1,10 @@
+import {GetNote} from "../controllers/GetNotes";
+
 import NewNote from "../assets/images/mainpage/icons/newNote";
 import Plus from "../assets/images/mainpage/icons/plus";
 
-const Board = () => {
+const ShowNotes = () => {
+    const data = GetNote()
 
     return (
         <main className="board">
@@ -17,10 +20,17 @@ const Board = () => {
             </div>
 
             <div className="content__wrapper">
-                {/*  Тут должны быть заметки  */}
+                {data.map(item => {
+                    return (
+                        <div className="card" key={item.id}>
+                            <h3>{item.title}</h3>
+                            <p>{item.text}</p>
+                        </div>
+                    )
+                })}
             </div>
         </main>
     );
 }
 
-export default Board
+export default ShowNotes

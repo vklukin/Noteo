@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './assets/css/style.css';
 
 import MainHeader from "./components/MainHeader";
-import Board from "./components/board";
+import ShowNotes from "./components/ShowNotes";
 import CreateNote from "./pages/CreateNote";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
             <MainHeader/>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Board/>}/>
+                    <Route path="/" element={<ShowNotes/>}/>
                     <Route path="/create" element={<CreateNote/>}/>
                 </Routes>
             </Router>

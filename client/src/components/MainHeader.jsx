@@ -4,10 +4,10 @@ const MainHeader = () => {
     return (
         <header className='mainHeader'>
             <div className="mainHeader__content">
-                <div className="mainHeader__appName">
+                <a className="mainHeader__appName" href="/">
                     <Logo/>
                     <p>Noteo</p>
-                </div>
+                </a>
             </div>
         </header>
     );
