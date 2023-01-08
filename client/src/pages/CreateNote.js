@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import axios from "axios";
 
-function CreateNote() {
+const CreateNote = () => {
     const [heading, setHeading] = useState('');
     const [textarea, setTextarea] = useState('');
+
+    function clearForm() {
+        setHeading('');
+        setTextarea('');
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -12,8 +17,8 @@ function CreateNote() {
             title: heading,
             text: textarea
         }).then(function (response) {
-            console.log('Ответ сервера успешно получен!');
             console.log(response.data);
+            clearForm()
         }).catch(function (error) {
             console.log(error);
         });
@@ -21,19 +26,19 @@ function CreateNote() {
 
     return (
         <main className="create">
-            <div className="content__wrapper">
-                <form action="#" method="post" onSubmit={handleSubmit}>
-                    <input type="text"
-                           placeholder="Введите заголовок"
-                           value={heading}
-                           onChange={e => setHeading(e.target.value)}/>
-                    <textarea placeholder="Заметка..."
-                              defaultValue={textarea}
-                              onChange={e => setTextarea(e.target.value)}>
-                    </textarea>
-                    <input type="submit" value="Создать"/>
-                </form>
-            </div>
+            <form action="#" method="post" onSubmit={handleSubmit}>
+                <input type="text"
+                       placeholder="Введите заголовок"
+                       value={heading}
+                       className="input input-heading"
+                       onChange={e => setHeading(e.target.value)}/>
+                <textarea placeholder="Заметка..."
+                          value={textarea}
+                          className="input input-textarea"
+                          onChange={e => setTextarea(e.target.value)}>
+                </textarea>
+                <button type="submit">Создать</button>
+            </form>
         </main>
     );
 }

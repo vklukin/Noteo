@@ -2,6 +2,7 @@ import {GetNote} from "../controllers/GetNotes";
 
 import NewNote from "../assets/images/mainpage/icons/newNote";
 import Plus from "../assets/images/mainpage/icons/plus";
+import ThreeDots from "../assets/images/mainpage/icons/threeDots";
 
 const ShowNotes = () => {
     const data = GetNote()
@@ -25,6 +26,12 @@ const ShowNotes = () => {
                         <div className="card" key={item.id}>
                             <h3>{item.title}</h3>
                             <p>{item.text}</p>
+
+                            <hr/>
+                            <div className="manual-items">
+                                <button className="card-button" data-id={item.id}><ThreeDots/></button>
+
+                            </div>
                         </div>
                     )
                 })}

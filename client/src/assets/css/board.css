@@ -1,19 +1,18 @@
 .board {
-  width: 100%;
-  height: 100%;
   position: relative;
   z-index: 1;
-  display: block;
+  max-height: 100%;
 }
 .board__controls {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   background-color: #fff;
-  position: sticky;
+  box-shadow: 0 2px 2px 0 rgb(234, 234, 234);
+  position: relative;
   top: 0;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 .board__controls .newNote {
   display: flex;
@@ -36,21 +35,57 @@
   background-color: #f1f1f1;
 }
 .board .content__wrapper {
-  max-width: 100%;
-  height: auto;
-  display: grid;
-  position: relative;
-  margin: 20px;
+  height: 100%;
   padding: 20px;
-  outline: 1px solid #000;
+  position: relative;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: repeat(auto-fill, 240px);
+  grid-auto-rows: 240px;
+  justify-content: center;
+  gap: 20px;
 }
 .board .content__wrapper .card {
-  width: 160px;
-  height: 220px;
-  outline: 1px solid #C2C2C2;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #2E0700;
+  padding: 15px;
+  position: relative;
 }
-.board .content__wrapper .card:last-child {
-  margin-bottom: 20px;
+.board .content__wrapper .card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.board .content__wrapper .card p {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  hyphens: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.board .content__wrapper .card hr {
+  width: 170px;
+  margin-bottom: 7px;
+}
+.board .content__wrapper .card .manual-items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.board .content__wrapper .card .manual-items .card-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=board.css.map */
