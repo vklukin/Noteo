@@ -54,6 +54,27 @@ h2, h3, h4, h5, button {
   font-family: 'Inter-SB', sans-serif;
 }
 
+textarea{
+  resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+  font-family: "Inter-R", sans-serif;
+}
+
+
+input, button, textarea {
+  border-radius: 5px;
+  border: 1px solid #2E0700;
+
+  outline: none;
+}
+
+input, textarea {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
 .block__wrapper {
   max-width: 100%;
   max-height: 100%;

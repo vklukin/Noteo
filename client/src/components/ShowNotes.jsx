@@ -23,14 +23,13 @@ const ShowNotes = () => {
             <div className="content__wrapper">
                 {data.map(item => {
                     return (
-                        <div className="card" key={item.id}>
+                        <div className="card" key={item.id} data-id={item.id}>
                             <h3>{item.title}</h3>
                             <p>{item.text}</p>
 
                             <hr/>
                             <div className="manual-items">
-                                <button className="card-button" data-id={item.id}><ThreeDots/></button>
-
+                                <button className="card-button"><ThreeDots/></button>
                             </div>
                         </div>
                     )
