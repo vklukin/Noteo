@@ -2,7 +2,7 @@ import {GetNote} from "../controllers/GetNotes";
 
 import NewNote from "../assets/images/mainpage/icons/newNote";
 import Plus from "../assets/images/mainpage/icons/plus";
-import ThreeDots from "../assets/images/mainpage/icons/threeDots";
+import ShowNotesOnBoard from "./ShowNotesOnBoard";
 
 const ShowNotes = () => {
     const data = GetNote()
@@ -23,15 +23,7 @@ const ShowNotes = () => {
             <div className="content__wrapper">
                 {data.map(item => {
                     return (
-                        <div className="card" key={item.id} data-id={item.id}>
-                            <h3>{item.title}</h3>
-                            <p>{item.text}</p>
-
-                            <hr/>
-                            <div className="manual-items">
-                                <button className="card-button"><ThreeDots/></button>
-                            </div>
-                        </div>
+                        <ShowNotesOnBoard key={item.id} id={item.id} title={item.title} text={item.text}/>
                     )
                 })}
             </div>

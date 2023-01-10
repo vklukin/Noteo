@@ -1,0 +1,12 @@
+.context-div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(0, 100%);
+  border: 1px solid blue;
+  width: 100%;
+  height: 120px;
+  z-index: 200;
+}
+
+/*# sourceMappingURL=context.css.map */
