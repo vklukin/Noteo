@@ -30,11 +30,23 @@ body {
   width: 100%;
 }
 
-p, h1, h2, h3, h4, a, textarea, input, label, button {
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+textarea,
+input,
+label,
+button {
   color: #2E0700;
 }
 
-p, label, input, textarea {
+p,
+label,
+input,
+textarea {
   font-family: "Inter-R", sans-serif;
 }
 
@@ -42,7 +54,11 @@ h1 {
   font-family: "Inter-B", sans-serif;
 }
 
-h2, h3, h4, h5, button {
+h2,
+h3,
+h4,
+h5,
+button {
   font-family: "Inter-SB", sans-serif;
 }
 
@@ -50,17 +66,21 @@ textarea {
   resize: none;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: "Inter-R", sans-serif;
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   border-radius: 5px;
   border: 1px solid #2E0700;
   outline: none;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 5px 10px;
   font-size: 16px;
 }
@@ -81,6 +101,7 @@ main {
   grid-column: 1/2;
   grid-row: 2/3;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .container {
@@ -183,6 +204,16 @@ main {
   grid-template-rows: 24px 140px 1fr;
   row-gap: 7px;
 }
+.board .content__wrapper .card .editButton {
+  position: absolute;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 85%;
+  cursor: default;
+}
 .board .content__wrapper .card h3 {
   font-size: 18px;
   grid-column: 1/-1;
@@ -190,6 +221,8 @@ main {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  user-select: none;
+  pointer-events: none;
 }
 .board .content__wrapper .card p {
   width: auto;
@@ -205,6 +238,8 @@ main {
   display: -webkit-box;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
+  user-select: none;
+  pointer-events: none;
 }
 .board .content__wrapper .card .manual-items {
   grid-column: 1/-1;
@@ -232,10 +267,16 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.create .btn-history-back {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .create form {
   display: grid;
-  grid-template-columns: repeat(4, 100px) 25px;
+  grid-template-columns: repeat(4, 200px) 25px;
   grid-template-rows: repeat(7, 30px);
   row-gap: 25px;
 }
@@ -243,7 +284,7 @@ main {
   border: 1px solid red;
 }
 .create form .grid-input-heading {
-  grid-column: 1/-1;
+  grid-column: 1/3;
   grid-row: 1/2;
 }
 .create form .grid-input-textarea {
@@ -379,6 +420,24 @@ main {
 .remove-note-modal .note-modal-wrapper .note-modal-wrapper-controllers .btn-answer.accept:hover {
   background-color: #25cc0c;
   color: #fff;
+}
+
+.historyBackButton {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Inter-SB", sans-serif;
+  color: #5C5C5C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.historyBackButton svg path {
+  stroke: #5C5C5C;
 }
 
 /*# sourceMappingURL=style.css.map */

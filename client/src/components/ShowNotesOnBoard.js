@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import {toast} from "react-toastify";
+import {Link} from "react-router-dom";
+import {PostRemoveNoteQuery} from "../controllers/PostRemoveNoteQuery";
 
 import ThreeDots from "../assets/images/mainpage/icons/threeDots";
-import {PostRemoveNoteQuery} from "../controllers/PostRemoveNoteQuery";
 
 class ShowNotesOnBoard extends Component {
     constructor(props) {
@@ -20,14 +21,12 @@ class ShowNotesOnBoard extends Component {
     listener = (e) => {
         if (e.target !== this.contextButtonRef.current) {
             if (e.target !== this.contextMenuRef.current) {
-                this.contextButtonRef.current.disabled = false;
                 return this.setState({showContext: false,})
             }
         }
     }
 
     handleContextMenu = () => {
-        this.contextButtonRef.current.disabled = true
         this.setState({showContext: true,})
     }
 
@@ -55,13 +54,14 @@ class ShowNotesOnBoard extends Component {
     }
 
     render() {
-        if (this.contextButtonRef.current !== null) {
+        if (this.state.showContext === true) {
             document.addEventListener('click', this.listener)
         }
 
         return (
             <>
                 <div className="card" data-id={this.props.id} ref={this.cardRef}>
+                    <Link to={`/edit/${this.props.id}`} className="editButton"/>
                     <h3>{this.props.title}</h3>
                     <p>{this.props.text}</p>
 

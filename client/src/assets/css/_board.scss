@@ -77,6 +77,21 @@
       grid-template-rows: 24px 140px 1fr;
       row-gap: 7px;
 
+      .editButton {
+        position: absolute;
+        z-index: 15;
+
+        top: 0;
+        left: 0;
+
+        background-color: $createNoteInputLabelGradient;
+
+        width: 100%;
+        height: 85%;
+
+        cursor: default;
+      }
+
       h3 {
         font-size: 18px;
         grid-column: 1 / -1;
@@ -85,6 +100,9 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        user-select: none;
+        pointer-events: none;
       }
 
       p {
@@ -104,6 +122,9 @@
         display: -webkit-box;
         -webkit-line-clamp: 7;
         -webkit-box-orient: vertical;
+
+        user-select: none;
+        pointer-events: none;
       }
 
       .manual-items {

@@ -1,13 +1,13 @@
 import axios from "axios";
 import {toast} from "react-toastify";
 
-export const PostRemoveNoteQuery = async (id, cardItem) => {
-    await axios.delete('http://localhost:2000/api/remove-note', {
-        data: {
-            id: id
-        }
-    }).then(function () {
-        toast.success('Заметка удалена!', {
+export const PostUpdateNote = async (heading, textarea, id) => {
+    await axios.post('http://localhost:2000/api/update-note', {
+        title: heading,
+        text: textarea,
+        id: id
+    }).then(function (response) {
+        return toast.success('Заметка изменена!', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -16,11 +16,10 @@ export const PostRemoveNoteQuery = async (id, cardItem) => {
             draggable: false,
             progress: undefined,
             theme: "light",
-        });
-        return cardItem.style.display = 'none';
+        })
     }).catch(function (error) {
-        console.error(error)
-        toast.error('Произошла ошибка! Повторите попытку позже.', {
+        console.log(error)
+        return toast.error('Произошла ошибка! Повторите попытку позже.', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,

@@ -5,10 +5,17 @@
   align-items: center;
   justify-content: center;
 
+  position: relative;
+
+  .btn-history-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   form {
     display: grid;
-    grid-template-columns: repeat(4, 100px) 25px;
+    grid-template-columns: repeat(4, 200px) 25px;
     grid-template-rows: repeat(7, 30px);
     row-gap: 25px;
 
@@ -17,7 +24,7 @@
     }
 
     .grid-input-heading {
-      grid-column: 1 / -1;
+      grid-column: 1 / 3;
       grid-row: 1 / 2;
     }
 

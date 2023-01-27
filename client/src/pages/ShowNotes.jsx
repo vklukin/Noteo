@@ -2,9 +2,13 @@ import {GetNote} from "../controllers/GetNotes";
 
 import NewNote from "../assets/images/mainpage/icons/newNote";
 import Plus from "../assets/images/mainpage/icons/plus";
-import ShowNotesOnBoard from "./ShowNotesOnBoard";
+import ShowNotesOnBoard from "../components/ShowNotesOnBoard";
+import {useEffect} from "react";
 
 const ShowNotes = () => {
+    useEffect(() => {
+        document.title = 'Noteo - заметки';
+    }, [])
     const data = GetNote()
 
     return (

@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {PostCreateNoteQuery} from "../controllers/PostCreateNoteQuery";
 import {toast} from "react-toastify";
+import HistoryBackButton from './../components/HistoryBackButton';
 
 const CreateNote = () => {
+    useEffect(() => {
+        document.title = 'Создание заметки';
+    }, [])
+
     const [heading, setHeading] = useState('');
     const [textarea, setTextarea] = useState('');
+
 
     function clearForm() {
         setHeading('');
@@ -38,6 +44,7 @@ const CreateNote = () => {
 
     return (
         <main className="create">
+            <HistoryBackButton />
             <form action="#" method="post" onSubmit={validate}>
                 <div className="input-wrapper grid-input-heading">
                     <label htmlFor="heading" className="labelRed">Заголовок</label>

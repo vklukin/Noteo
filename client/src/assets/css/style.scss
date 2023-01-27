@@ -38,11 +38,23 @@ body {
   width: 100%;
 }
 
-p, h1, h2, h3, h4, a, textarea, input, label, button {
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+textarea,
+input,
+label,
+button {
   color: $base-text-color;
 }
 
-p, label, input, textarea {
+p,
+label,
+input,
+textarea {
   font-family: 'Inter-R', sans-serif;
 }
 
@@ -50,27 +62,35 @@ h1 {
   font-family: 'Inter-B', sans-serif;
 }
 
-h2, h3, h4, h5, button {
+h2,
+h3,
+h4,
+h5,
+button {
   font-family: 'Inter-SB', sans-serif;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: "Inter-R", sans-serif;
 }
 
 
-input, button, textarea {
+input,
+button,
+textarea {
   border-radius: 5px;
   border: 1px solid #2E0700;
 
   outline: none;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 5px 10px;
   font-size: 16px;
 }
@@ -92,7 +112,9 @@ input, textarea {
 main {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+
   padding-bottom: 20px;
+  position: relative;
 }
 
 .container {
@@ -108,3 +130,4 @@ main {
 @import "create";
 @import "context";
 @import "removeNoteModal";
+@import "historyBackButton";
