@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GetNoteForEdit } from "../controllers/GetNoteForEdit";
 import { toast } from "react-toastify";
-import { PostUpdateNote } from "../controllers/PostUpdateNote";
+import { PutUpdateNote } from "../controllers/PutUpdateNote";
 import HistoryBackButton from "./../components/HistoryBackButton";
 
 function EditNote() {
@@ -46,7 +46,7 @@ function EditNote() {
         theme: "light",
       });
     } else {
-      PostUpdateNote({
+      PutUpdateNote({
         title: heading,
         text: textarea,
         id: id,

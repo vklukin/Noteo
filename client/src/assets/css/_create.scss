@@ -7,12 +7,6 @@
 
   position: relative;
 
-  .btn-history-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   form {
     display: grid;
     grid-template-columns: repeat(4, 200px) 25px;

@@ -102,6 +102,7 @@ main {
   grid-row: 2/3;
   padding-bottom: 20px;
   position: relative;
+  height: 100%;
 }
 
 .container {
@@ -114,34 +115,47 @@ main {
 .mainHeader {
   grid-column: 1/-1;
   grid-row: 1/2;
-  padding: 0.75em 0.94em;
+  padding: 12px 15px;
   box-shadow: 0 1px 3px 0 rgb(218, 218, 218);
   background-color: #fff;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 140px 1fr 80px;
+  grid-template-rows: 1fr;
   position: relative;
   z-index: 33;
   top: 0;
   width: 100%;
 }
-.mainHeader__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 20px;
-}
 .mainHeader__appName {
   height: 100%;
+  width: auto;
   gap: 20px;
+  grid-column: 2/3;
+  grid-row: 1/-1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   text-decoration: none;
 }
 .mainHeader__appName p {
   font-size: 28px;
+}
+.mainHeader__login {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #2E0700;
+  outline: none;
+  background-color: #fff;
+  text-decoration: none;
+  font-family: Inter-R, sans-serif;
+}
+.mainHeader__login:hover {
+  background-color: #f1f1f1;
 }
 
 .board {
@@ -172,7 +186,6 @@ main {
   outline: none;
   background-color: #fff;
   cursor: pointer;
-  transition: all 0.1s ease-in;
 }
 .board__controls .newNote p {
   font-size: 1.3em;
@@ -211,7 +224,7 @@ main {
   left: 0;
   background-color: rgba(255, 255, 255, 0);
   width: 100%;
-  height: 85%;
+  height: 83%;
   cursor: default;
 }
 .board .content__wrapper .card h3 {
@@ -268,11 +281,6 @@ main {
   align-items: center;
   justify-content: center;
   position: relative;
-}
-.create .btn-history-back {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 .create form {
   display: grid;
@@ -438,6 +446,93 @@ main {
 }
 .historyBackButton svg path {
   stroke: #5C5C5C;
+}
+
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginPage form {
+  position: relative;
+  height: auto;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.loginPage form h1 {
+  margin-bottom: 35px;
+}
+.loginPage form .registrationButton {
+  width: 100%;
+  background: #2E0700;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 20px;
+  transition: color 0.1s ease-in, background-color 0.1s ease-in;
+  font-size: 16px;
+  color: #fff;
+}
+.loginPage form .registrationButton:hover {
+  background-color: #5d3e38;
+}
+.loginPage form .controllers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.loginPage form .controllers button[type=submit] {
+  background: #2E0700;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 20px;
+  transition: color 0.1s ease-in, background-color 0.1s ease-in;
+  font-size: 16px;
+  color: #fff;
+}
+.loginPage form .controllers button[type=submit]:hover {
+  background-color: #5d3e38;
+}
+.loginPage form .controllers a {
+  text-decoration: none;
+  font-family: Inter-SB, sans-serif;
+  color: #2E0700;
+}
+.loginPage form .controllers a:hover {
+  color: #5d3e38;
+}
+.loginPage form .inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+.loginPage form .inputs .input-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.loginPage form .inputs .input-wrapper input {
+  width: 100%;
+}
+.loginPage form .inputs .input-wrapper label {
+  background: linear-gradient(180deg, #fff 70%, #fff 10%, rgba(255, 255, 255, 0));
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 14px;
+  user-select: none;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */

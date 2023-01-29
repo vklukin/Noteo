@@ -4,11 +4,7 @@ import ArrowLeft from "./../assets/images/mainpage/icons/arrowLeft";
 class HistoryBackButton extends Component {
   render() {
     return (
-      <a
-        href="/"
-        className="historyBackButton"
-        // onClick={() => window.history.back()}
-      >
+      <a href="/" className="historyBackButton">
         <ArrowLeft />
         Назад
       </a>

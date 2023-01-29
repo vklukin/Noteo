@@ -115,6 +115,8 @@ main {
 
   padding-bottom: 20px;
   position: relative;
+
+  height: 100%;
 }
 
 .container {
@@ -131,3 +133,4 @@ main {
 @import "context";
 @import "removeNoteModal";
 @import "historyBackButton";
+@import "loginAndRegistration";

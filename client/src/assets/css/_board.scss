@@ -36,7 +36,6 @@
       background-color: $white;
 
       cursor: pointer;
-      transition: all .1s ease-in;
 
       p {
         font-size: 1.3em;
@@ -87,7 +86,7 @@
         background-color: $createNoteInputLabelGradient;
 
         width: 100%;
-        height: 85%;
+        height: 83%;
 
         cursor: default;
       }
