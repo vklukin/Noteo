@@ -13,10 +13,6 @@
     grid-template-rows: repeat(7, 30px);
     row-gap: 25px;
 
-    .input.error-input {
-      border: 1px solid $reject;
-    }
-
     .grid-input-heading {
       grid-column: 1 / 3;
       grid-row: 1 / 2;

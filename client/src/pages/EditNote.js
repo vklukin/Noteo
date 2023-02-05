@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { GetNoteForEdit } from "../controllers/GetNoteForEdit";
+import { GetNoteForEdit } from "../controllers/AxiosQueriesForNotes/GetNoteForEdit";
 import { toast } from "react-toastify";
-import { PutUpdateNote } from "../controllers/PutUpdateNote";
+import { PutUpdateNote } from "../controllers/AxiosQueriesForNotes/PutUpdateNote";
 import HistoryBackButton from "./../components/HistoryBackButton";
 
 function EditNote() {

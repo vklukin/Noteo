@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { DeleteNoteQuery } from "../controllers/DeleteNoteQuery";
+import { DeleteNoteQuery } from "../controllers/AxiosQueriesForNotes/DeleteNoteQuery";
 
 import ThreeDots from "../assets/images/mainpage/icons/threeDots";
 

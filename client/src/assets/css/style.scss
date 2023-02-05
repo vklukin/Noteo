@@ -126,6 +126,15 @@ main {
   margin-inline: auto;
 }
 
+.input.error-input {
+  border: 1px solid $reject;
+}
+
+button[type="submit"]:disabled {
+  background: $baseTextColorHover !important;
+  cursor: not-allowed !important;
+}
+
 //import
 @import "header";
 @import "board";
