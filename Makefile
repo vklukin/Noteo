@@ -1,43 +1,31 @@
 # ------------------------- PRODUCTION -------------------------
-#build docker image
-build:
-	docker build -t moratoriums_prod -f Dockerfile_prod .
+# start docker compose on dev version
+docker-prod:
+	docker-compose up -d -f docker-compose.prod.yml --name NoteoProd
 
-#starting docker container without remove container at the end
-run:
-	docker run --name MoratoriumsContainer -d -p 3010:3000 moratoriums_prod
-
-#starting docker container with remove container at the end
-run-wrm:
-	docker run --name MoratoriumsContainer --rm -d -p 3010:3000 moratoriums_prod
-
-#starting docker container without remove container at the end for windows
-run-win:
-	docker run --name MoratoriumsContainer --rm -d -p 3010:3000 moratoriums_prod
-
-#starting docker container with remove container at the end for windows
-run-win-wrm:
-	docker run --name MoratoriumsContainer --rm -p 3010:3000 moratoriums_prod
-
-#stop docker container
-stop:
-	docker stop MoratoriumsContainer
-
-#remove image
-rm:
-	docker image rm moratoriums_prod
+# stop docker compose on dev version
+stop-docker-prod:
+	docker-compose down
 
 
 
 # ------------------------- DEVELOPMENT -------------------------
-# starting prettier
+# start prettier
 pretty:
 	yarn run prettier
 
-# starting linter
+# start linter
 lint:
 	yarn run lint
 
 # make pretty and lint
 ppo:
 	yarn run pretty && yarn run lint
+
+# start docker compose on dev version
+docker-dev:
+	docker-compose up -d -f docker-compose.dev.yml --name NoteoDev
+
+# stop docker compose on dev version
+stop-docker-dev:
+	docker-compose down
