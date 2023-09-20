@@ -4,7 +4,7 @@ pre-commit:
         - rebase
     piped: true
     commands:
-        pretty_and_lint:
-            run: make ppo
+        pretty_client:
+            run: cd client && make pretty
         add:
             run: git add *

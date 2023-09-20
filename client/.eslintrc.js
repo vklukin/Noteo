@@ -10,8 +10,7 @@ module.exports = {
         "react-app",
         "plugin:react/recommended",
         "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:playwright/recommended"
+        "plugin:@typescript-eslint/recommended"
     ],
     overrides: [],
     parserOptions: {
@@ -42,4 +41,4 @@ module.exports = {
             }
         }
     }
-};
+}

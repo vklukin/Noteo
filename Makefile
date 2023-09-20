@@ -23,9 +23,13 @@ ppo:
 	yarn run pretty && yarn run lint
 
 # start docker compose on dev version
-docker-dev:
-	docker-compose up -d -f docker-compose.dev.yml --name NoteoDev
+start-dev:
+	docker compose -f docker-compose.dev.yml up -d 
 
 # stop docker compose on dev version
-stop-docker-dev:
-	docker-compose down
+stop-dev:
+	docker compose down
+
+# start only client
+start-c:
+	cd client && yarn run start
