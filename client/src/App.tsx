@@ -1,7 +1,9 @@
-import { Router } from "./router"
+import { Router } from "./router";
+
+import "./styles/global.css";
 
 function App() {
-    return <Router />
+    return <Router />;
 }
 
-export default App
+export default App;

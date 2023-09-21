@@ -1,22 +1,22 @@
-import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify"
+import { ToastContainer, toast, ToastPosition, Theme } from "react-toastify";
 
 export interface IMessagesProps {
-    position?: ToastPosition
-    closeDelay?: number
-    theme?: Theme
+    position?: ToastPosition;
+    closeDelay?: number;
+    theme?: Theme;
 }
 
 class Messages {
-    private _position: ToastPosition = "bottom-right"
-    private _closeDelay = 7000
-    private _theme: Theme = "light"
+    private _position: ToastPosition = "bottom-right";
+    private _closeDelay = 7000;
+    private _theme: Theme = "light";
 
     constructor(props: IMessagesProps) {
-        const { closeDelay, position, theme } = props
+        const { closeDelay, position, theme } = props;
 
-        if (position !== undefined) this._position = position
-        if (closeDelay !== undefined) this._closeDelay = closeDelay
-        if (theme !== undefined) this._theme = theme
+        if (position !== undefined) this._position = position;
+        if (closeDelay !== undefined) this._closeDelay = closeDelay;
+        if (theme !== undefined) this._theme = theme;
     }
 
     MessageContainer = () => {
@@ -33,8 +33,8 @@ class Messages {
                 draggable={false}
                 pauseOnHover={false}
             />
-        )
-    }
+        );
+    };
 
     success(message: string) {
         return toast.success(message, {
@@ -46,7 +46,7 @@ class Messages {
             pauseOnHover: false,
             draggable: false,
             progress: undefined
-        })
+        });
     }
 
     error(message: string) {
@@ -59,7 +59,7 @@ class Messages {
             pauseOnHover: false,
             draggable: false,
             progress: undefined
-        })
+        });
     }
 
     info(message: string) {
@@ -72,7 +72,7 @@ class Messages {
             pauseOnHover: false,
             draggable: false,
             progress: undefined
-        })
+        });
     }
 
     warning(message: string) {
@@ -85,8 +85,8 @@ class Messages {
             pauseOnHover: false,
             draggable: false,
             progress: undefined
-        })
+        });
     }
 }
 
-export const useMessage = (props: IMessagesProps = {}) => new Messages(props)
+export const useMessage = (props: IMessagesProps = {}) => new Messages(props);

@@ -1,0 +1,18 @@
+:root {
+    --white: #fff;
+    --black: #000;
+
+    --base-text-color: #2e0700;
+    
+    --placeholder-color: #c2c2c2;
+    --category-color: #5c5c5c;
+    --border-color: #e0e0e0;
+    --accept: #25cc0c;
+    --reject: red;
+    --headerBoxShadow: rgb(218, 218, 218);
+    --createNoteInputLabelGradient: rgba(255, 255, 255, 0);
+    --boardControls: rgb(234, 234, 234);
+    --newNoteButton: #f1f1f1;
+    --loginBoxShadow: rgba(218, 218, 218, 0.47);
+    --baseTextColorHover: #5d3e38;
+}

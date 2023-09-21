@@ -1,14 +1,14 @@
-import { Navigate, Outlet } from "react-router-dom"
-import { useAuth } from "../core/context/AuthContext"
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../core/context/AuthContext";
 
 const useUser = () => {
-    return false
-}
+    return false;
+};
 
 const ProtectedRoute = (props) => {
-    const auth = useAuth()
+    const auth = useAuth();
 
-    return auth.user.auth ? <Outlet /> : <Navigate to="login" />
-}
+    return auth.user.auth ? <Outlet /> : <Navigate to="login" />;
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;
