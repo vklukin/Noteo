@@ -10,18 +10,6 @@ stop-docker-prod:
 
 
 # ------------------------- DEVELOPMENT -------------------------
-# start prettier
-pretty:
-	yarn run prettier
-
-# start linter
-lint:
-	yarn run lint
-
-# make pretty and lint
-ppo:
-	yarn run pretty && yarn run lint
-
 # start docker compose on dev version
 start-dev:
 	docker compose -f docker-compose.dev.yml up -d 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import classNames from "classnames/bind"
 import { AxiosError } from "axios"
 
-import styles from "./style.module.css"
+import styles from "../style.module.css"
 import { IInputState } from "../../../../core/types/inputs"
 import { IMessageResponse } from "../../../../core/models/serverResponse"
 import { useAuth } from "../../../../core/hooks/useAuth"
@@ -43,7 +43,7 @@ function Login() {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        if (isLoginFormValid({ email, setEmail }, { password, setPassword })) {
+        if (!isLoginFormValid({ email, setEmail }, { password, setPassword })) {
             return
         }
 
@@ -79,8 +79,8 @@ function Login() {
                         <input
                             type="password"
                             placeholder="Введите пароль"
-                            value={password.value}
                             id="password"
+                            value={password.value}
                             className={`input ${cx({
                                 "error-input": !!password.errorText
                             })}`}
@@ -103,7 +103,7 @@ function Login() {
                     </button>
                 </div>
             </form>
-            <p className={cx("errorMessage")}>{email.errorText || password.errorText}</p>
+            <p className={cx("errorMessage")}>{email.errorText || password.errorText || ""}</p>
         </main>
     )
 }
