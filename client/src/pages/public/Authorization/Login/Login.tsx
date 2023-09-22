@@ -1,59 +1,59 @@
-import { useEffect, useState } from "react"
-import classNames from "classnames/bind"
-import { AxiosError } from "axios"
+import React, { useEffect, useState } from "react";
+import classNames from "classnames/bind";
+import { AxiosError } from "axios";
 
-import styles from "../style.module.css"
-import { IInputState } from "../../../../core/types/inputs"
-import { IMessageResponse } from "../../../../core/models/serverResponse"
-import { useAuth } from "../../../../core/hooks/useAuth"
-import { useMessage } from "../../../../core/hooks/useMessage"
-import { Validation } from "../../../../core/utils/Validation"
-import { isLoginFormValid } from "./validation"
+import styles from "../style.module.css";
+import { IInputState } from "../../../../core/types/inputs";
+import { IMessageResponse } from "../../../../core/models/serverResponse";
+import { useAuth } from "../../../../core/hooks/useAuth";
+import { Message } from "../../../../core/utils/Message";
+import { Validation } from "../../../../core/utils/Validation";
+import { isLoginFormValid } from "./validation";
 
-const cx = classNames.bind(styles)
-const { error } = useMessage()
-const { isEmailValid } = Validation
+const cx = classNames.bind(styles);
+const { error } = Message();
+const { isEmailValid } = Validation;
 
 function Login() {
-    const { login } = useAuth()
+    const { login } = useAuth();
 
     const [email, setEmail] = useState<IInputState>({
         value: "",
         errorText: ""
-    })
+    });
     const [password, setPassword] = useState<IInputState>({
         value: "",
         errorText: ""
-    })
+    });
 
     useEffect(() => {
-        document.title = "Noteo - Вход"
-    }, [])
+        document.title = "Noteo - Вход";
+    }, []);
 
     const inputTypes = {
         email: setEmail,
         password: setPassword
-    }
+    };
     const hangleChangeState = (inputType: keyof typeof inputTypes) => {
         return (event: React.ChangeEvent<HTMLInputElement>) => {
-            inputTypes[inputType]({ value: event.target.value, errorText: "" })
-        }
-    }
+            inputTypes[inputType]({ value: event.target.value, errorText: "" });
+        };
+    };
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (!isLoginFormValid({ email, setEmail }, { password, setPassword })) {
-            return
+            return;
         }
 
         try {
-            await login({ email: email.value, password: password.value })
+            await login({ email: email.value, password: password.value });
         } catch (e) {
-            const err = e as AxiosError<IMessageResponse>
-            error(err.response?.data?.message || "Произошла ошибка")
+            const err = e as AxiosError<IMessageResponse>;
+            error(err.response?.data?.message || "Произошла ошибка");
         }
-    }
+    };
 
     return (
         <main className={cx("authContainer")}>
@@ -103,9 +103,11 @@ function Login() {
                     </button>
                 </div>
             </form>
-            <p className={cx("errorMessage")}>{email.errorText || password.errorText || ""}</p>
+            <p className={cx("errorMessage")}>
+                {email.errorText || password.errorText || ""}
+            </p>
         </main>
-    )
+    );
 }
 
-export default Login
+export default Login;

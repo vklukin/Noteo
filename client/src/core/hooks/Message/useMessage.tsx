@@ -89,4 +89,4 @@ class Messages {
     }
 }
 
-export const useMessage = (props: IMessagesProps = {}) => new Messages(props);
+export const Message = (props: IMessagesProps = {}) => new Messages(props);

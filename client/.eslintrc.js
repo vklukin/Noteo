@@ -6,12 +6,7 @@ module.exports = {
         node: true,
         amd: true
     },
-    extends: [
-        "react-app",
-        "plugin:react/recommended",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
+    extends: ["react-app", "plugin:react/recommended", "eslint:recommended"],
     overrides: [],
     parserOptions: {
         files: ["**/*.{js,jsx,ts,tsx}"],
@@ -21,7 +16,7 @@ module.exports = {
             jsx: true
         }
     },
-    plugins: ["react", "@typescript-eslint"],
+    plugins: ["react"],
     rules: {
         "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
         "@typescript-eslint/no-explicit-any": "off",

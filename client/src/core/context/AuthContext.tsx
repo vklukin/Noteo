@@ -1,9 +1,10 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+import React, { createContext, useCallback, useMemo, useState } from "react";
 
 import { Api } from "../configs/api";
 import { IUser } from "../models/user";
 import { usePersistNavigate } from "../hooks/usePersistNavigate";
-import { useMessage } from "../hooks/useMessage";
+import { Message } from "../utils/Message";
+import { clearCache } from "../utils/clearCache";
 
 export interface IAuthContext {
     user: IUser | null;
@@ -20,7 +21,7 @@ export interface IAuthProviderProps {
     children: React.ReactNode;
 }
 
-const { success } = useMessage();
+const { success } = Message();
 
 export const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
     const navigate = usePersistNavigate();
@@ -35,29 +36,33 @@ export const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
         localStorage.setItem("auth", JSON.stringify(userData));
     }, []);
 
-    const login = useCallback<IAuthContext["login"]>(async (userObj) => {
-        const { data } = await Api.post("/auth/login", userObj, {
-            withCredentials: true
-        });
+    const login = useCallback<IAuthContext["login"]>(
+        async (userObj) => {
+            const { data } = await Api.post("/auth/login", userObj, {
+                withCredentials: true
+            });
 
-        setAuth(data);
-        navigate("/");
-    }, []);
+            setAuth(data);
+            navigate(`/${data.id}/notes`);
+        },
+        [navigate, setAuth]
+    );
 
     const registration = useCallback<IAuthContext["registration"]>(
         async (userObj) => {
             await Api.post("/auth/registration", userObj);
 
-            navigate("/login");
+            navigate("/");
             success("Вы успешно зарегистрировались");
         },
-        []
+        [navigate]
     );
 
     const logout = useCallback<IAuthContext["logout"]>(() => {
         setUser(null);
 
         localStorage.removeItem("auth");
+        clearCache();
     }, []);
 
     const value = useMemo(

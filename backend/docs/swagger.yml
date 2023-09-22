@@ -20,10 +20,7 @@ paths:
             summary: Giving access to a personal account
             requestBody:
                 required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/requestBodies/login"
+                $ref: "#/components/requestBodies/login"
             responses:
                 "200":
                     description: User is logged in
@@ -34,13 +31,31 @@ paths:
             summary: Create account in the system
             requestBody:
                 required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/requestBodies/registration"
+                $ref: "#/components/requestBodies/registration"
             responses:
                 "200":
                     description: User has create the account
+    /api/notes?userId={USER_ID}:
+        get:
+            tags:
+                - "Notes"
+            summary: Return all notes that user has
+            parameters:
+                - in: path
+                  schema:
+                      type: string
+                  name: User id
+                  required: true
+                - in: header
+                  schema:
+                      type: string
+                  name: Authorization token
+                  description: "Authorization: Bearer <token>"
+                  required: true
+            responses:
+                "200":
+                    description: Return notes
+                    $ref: "#/components/responses/allNotes"
 
 components:
     requestBodies:
@@ -52,8 +67,10 @@ components:
                         properties:
                             email:
                                 type: string
+                                example: example@example.ex
                             password:
                                 type: string
+                                example: password
         registration:
             content:
                 application/json:
@@ -62,5 +79,26 @@ components:
                         properties:
                             email:
                                 type: string
+                                example: example@example.ex
                             password:
                                 type: string
+                                example: password
+    responses:
+        allNotes:
+            description: Note schema
+            content:
+                application/json:
+                    schema:
+                        type: array
+                        items:
+                            type: object
+                            properties:
+                                id:
+                                    type: number
+                                    example: 1
+                                title:
+                                    type: string
+                                    example: title
+                                content:
+                                    type: string
+                                    example: content

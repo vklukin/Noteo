@@ -6,7 +6,7 @@ export const ProtectRoute = () => {
     const { user } = useAuth();
 
     if (!user || user === null) {
-        return <Navigate replace to="/login" />;
+        return <Navigate replace to="/" />;
     }
 
     return <Outlet />;

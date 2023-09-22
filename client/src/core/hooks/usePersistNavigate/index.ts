@@ -1,1 +1,1 @@
-export * from "./usePersistNavigate"
+export * from "./usePersistNavigate";

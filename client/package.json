@@ -24,11 +24,6 @@
         "lint": "eslint --ignore-path .gitignore .",
         "prettier": "prettier --write \"**/*.*(js|jsx|ts|tsx|json)\""
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app"
-        ]
-    },
     "browserslist": {
         "production": [
             ">0.2%",

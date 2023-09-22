@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { AxiosError } from "axios";
 
 import styles from "../style.module.css";
 import { IInputState } from "../../../../core/types/inputs";
-import { useMessage } from "../../../../core/hooks/useMessage";
+import { Message } from "../../../../core/utils/Message";
 import { Validation } from "../../../../core/utils/Validation";
 import { useAuth } from "../../../../core/hooks/useAuth";
 import { IMessageResponse } from "../../../../core/models/serverResponse";
 import { isRegistrationValid } from "./validation";
 
 const cx = classNames.bind(styles);
-const { error } = useMessage();
+const { error } = Message();
 const { isEmailValid } = Validation;
 
 function Registration() {
@@ -119,7 +119,7 @@ function Registration() {
                     </div>
                 </div>
                 <div className={cx("controllers")}>
-                    <a href="/login">Войти</a>
+                    <a href="/">Войти</a>
                     <button
                         type="submit"
                         disabled={

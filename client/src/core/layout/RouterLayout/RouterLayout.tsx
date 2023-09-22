@@ -1,8 +1,8 @@
 import classNames from "classnames/bind";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 
 import styles from "./style.module.css";
-import { useMessage } from "../../hooks/useMessage";
+import { Message } from "../../utils/Message";
 import { Header } from "../../../components/simple/Header";
 
 interface IRouterLayoutProps {
@@ -10,7 +10,7 @@ interface IRouterLayoutProps {
 }
 
 const cx = classNames.bind(styles);
-const { MessageContainer } = useMessage();
+const { MessageContainer } = Message();
 
 export const RouterLayout: React.FC<IRouterLayoutProps> = ({ children }) => {
     return (
