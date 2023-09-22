@@ -1,0 +1,66 @@
+openapi: 3.0.3
+
+info:
+    title: Noteo API
+    description: Api for working with notes
+    version: 1.0.0
+
+servers:
+    - url: http://localhost:2000
+
+tags:
+    - name: Authorization
+    - name: Notes
+
+paths:
+    /auth/login:
+        post:
+            tags:
+                - "Authorization"
+            summary: Giving access to a personal account
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/requestBodies/login"
+            responses:
+                "200":
+                    description: User is logged in
+    /auth/registration:
+        post:
+            tags:
+                - "Authorization"
+            summary: Create account in the system
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/requestBodies/registration"
+            responses:
+                "200":
+                    description: User has create the account
+
+components:
+    requestBodies:
+        login:
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            email:
+                                type: string
+                            password:
+                                type: string
+        registration:
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            email:
+                                type: string
+                            password:
+                                type: string
