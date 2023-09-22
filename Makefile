@@ -20,4 +20,4 @@ stop-dev:
 
 # start only client
 start-c:
-	cd client && yarn run start
+	cd client && npm run start

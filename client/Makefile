@@ -1,11 +1,15 @@
+# start dev server
+start:
+	npm start
+
 # start prettier
 pretty:
-	yarn run prettier
+	npm run prettier
 
 # start linter
 lint:
-	yarn run lint
+	npm run lint
 
 # make pretty and lint
 ppo:
-	yarn run pretty && yarn run lint
+	npm run pretty && npm run lint
