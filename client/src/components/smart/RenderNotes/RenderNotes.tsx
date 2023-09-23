@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./style.module.css";
 import { INote } from "../../../core/models/notes";
 
-import ShowNotesOnBoard from "../../ShowNotesOnBoard";
+import { NoteCard } from "../NoteCard";
 
 interface RenderNotesProps {
     data: INote[];
@@ -16,13 +16,13 @@ export const RenderNotes: React.FC<RenderNotesProps> = ({ data }) => {
     return (
         <div className={cx("container")}>
             {data &&
-                data.map((item) => {
+                data.map(({ id, content, title }) => {
                     return (
-                        <ShowNotesOnBoard
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            text={item.content}
+                        <NoteCard
+                            key={id}
+                            id={id}
+                            title={title}
+                            content={content}
                         />
                     );
                 })}

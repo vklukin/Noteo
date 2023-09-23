@@ -3,7 +3,7 @@
     --black: #000;
 
     --base-text-color: #2e0700;
-    
+
     --placeholder-color: #c2c2c2;
     --category-color: #5c5c5c;
     --border-color: #e0e0e0;
@@ -22,4 +22,8 @@
 
     --spinner-bg-color: #ffffffa2;
     --main-color: rgb(224, 125, 19);
+
+    --remove-card-modal-bg-color: rgba(0, 0, 0, 0.5);
+    --card-context-menu-bs-color: 0 0.1rem 0.2rem 0 rgb(60 64 67 / 30%),
+        0 0.2rem 0.6rem 0.2rem rgb(60 64 67 / 15%);
 }

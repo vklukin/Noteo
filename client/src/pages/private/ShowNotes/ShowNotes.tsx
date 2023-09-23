@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import { useNotesApi } from "../../../core/api/Notes";
 import { useAuth } from "../../../core/hooks/useAuth";
 import { queryKeys } from "../../../core/configs/QueryClient";
+import { CACHE_LIFE_TIME } from "../../../core/constants/queries";
 
 import { RenderNotes } from "../../../components/smart/RenderNotes";
 import { Controls } from "../../../components/smart/Controls";
@@ -22,8 +23,10 @@ const ShowNotes = () => {
         document.title = "Noteo - заметки";
     }, []);
 
-    const { data, isLoading } = useQuery([ALL_NOTES], () =>
-        allNotes(user?.id.toString() || "0")
+    const { data, isLoading } = useQuery(
+        [ALL_NOTES],
+        () => allNotes(user?.id.toString() || "0"),
+        { refetchInterval: CACHE_LIFE_TIME }
     );
 
     if (isLoading) {
