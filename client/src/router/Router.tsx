@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
 import { RouterLayout } from "../core/layout/RouterLayout";
+import { ProtectRoute } from "../core/layout/ProtectRoute";
 import { LoginPageLazy } from "../pages/public/Authorization/Login";
 import { RegistrationPageLazy } from "../pages/public/Authorization/Registration/index";
 import { NotFoundPageLazy } from "../pages/public/404";
-import { ProtectRoute } from "../core/layout/ProtectRoute";
-import CreateNote from "../pages/CreateNote";
-import EditNote from "../pages/EditNote";
 import { MainPageLazy } from "../pages/private/ShowNotes";
+import { CreateNotePageLazy } from "../pages/private/CreateNote";
+import EditNote from "../pages/EditNote";
 
 export const Router = () => {
     return (
@@ -17,7 +17,7 @@ export const Router = () => {
                     <Route path="/:userId/notes" element={<MainPageLazy />} />
                     <Route
                         path="/:userId/note/create"
-                        element={<CreateNote />}
+                        element={<CreateNotePageLazy />}
                     />
                     <Route
                         path="/:userId/note/edit/:id"

@@ -21,8 +21,8 @@
         "start:docker": "WATCHPACK_POLLING=true react-scripts start",
         "build": "react-scripts build",
         "eject": "react-scripts eject",
-        "lint": "eslint --ignore-path .gitignore .",
-        "prettier": "prettier --write \"**/*.*(js|jsx|ts|tsx|json)\""
+        "lint": "eslint .",
+        "pretty": "prettier --write \"**/*.*(js|jsx|ts|tsx|json)\""
     },
     "browserslist": {
         "production": [

@@ -1,14 +1,23 @@
 import { Api } from "../configs/api";
-import { INote } from "../models/notes";
+import { IDataForCreateNote, INote } from "../models/notes";
 
 class NotesApi {
-    async getAllNotes(userId: string) {
-        const response = await Api.get<INote[]>(`/api/notes?userId=${userId}`);
+    async getAllNotes(userId: string, { signal }: AbortController) {
+        const response = await Api.get<INote[]>(`/api/notes?userId=${userId}`, {
+            signal
+        });
         return response;
     }
 
     async removeNote(noteId: number, { signal }: AbortController) {
         await Api.delete(`/api/notes/${noteId}`, { signal });
+    }
+
+    async createNote(
+        noteData: IDataForCreateNote,
+        { signal }: AbortController
+    ) {
+        await Api.post("/api/notes", noteData, { signal });
     }
 }
 

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import classNames from "classnames/bind";
 
@@ -19,13 +19,25 @@ const cx = classNames.bind(styles);
 const ShowNotes = () => {
     const { user } = useAuth();
 
+    const abortControllerRef = useRef<AbortController | null>(null);
+
     useEffect(() => {
         document.title = "Noteo - заметки";
+
+        return () => {
+            abortControllerRef.current?.abort();
+        };
     }, []);
 
     const { data, isLoading } = useQuery(
         [ALL_NOTES],
-        () => getAllNotes(user?.id.toString() || "0"),
+        () => {
+            abortControllerRef.current = new AbortController();
+            return getAllNotes(
+                user?.id.toString() || "0",
+                abortControllerRef.current
+            );
+        },
         { refetchInterval: CACHE_LIFE_TIME }
     );
 

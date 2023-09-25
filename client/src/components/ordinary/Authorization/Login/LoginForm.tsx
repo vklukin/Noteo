@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import { AxiosError } from "axios";
 
 import styles from "../style.module.css";
-import { IInputState } from "../../../../core/types/inputs";
-import { IMessageError } from "../../../../core/models/serverResponse";
-import { useAuth } from "../../../../core/hooks/useAuth";
 import { Message } from "../../../../core/utils/Message";
 import { Validation } from "../../../../core/utils/Validation";
-import { isLoginFormValid } from "../../../../components/ordinary/Authorization/Login/validation";
+import { useAuth } from "../../../../core/hooks/useAuth";
+import { IMessageError } from "../../../../core/models/serverResponse";
+import { IInputState } from "../../../../core/types/inputs";
+import { isLoginFormValid } from "./validation";
 
 const cx = classNames.bind(styles);
 const { error } = Message();
 const { isEmailValid } = Validation;
 
-function Login() {
+export const LoginForm = () => {
     const { login } = useAuth();
 
     const [email, setEmail] = useState<IInputState>({
@@ -25,10 +25,6 @@ function Login() {
         value: "",
         errorText: ""
     });
-
-    useEffect(() => {
-        document.title = "Noteo - Вход";
-    }, []);
 
     const inputTypes = {
         email: setEmail,
@@ -108,6 +104,4 @@ function Login() {
             </p>
         </main>
     );
-}
-
-export default Login;
+};

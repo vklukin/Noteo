@@ -3,3 +3,8 @@ export interface INote {
     title: string;
     content: string;
 }
+
+export interface IDataForCreateNote {
+    heading: string;
+    content: string;
+}
