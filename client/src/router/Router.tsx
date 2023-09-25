@@ -15,8 +15,14 @@ export const Router = () => {
             <Routes>
                 <Route element={<ProtectRoute />}>
                     <Route path="/:userId/notes" element={<MainPageLazy />} />
-                    <Route path="/:userId/note/create" element={<CreateNote />} />
-                    <Route path="/:userId/note/edit/:id" element={<EditNote />} />
+                    <Route
+                        path="/:userId/note/create"
+                        element={<CreateNote />}
+                    />
+                    <Route
+                        path="/:userId/note/edit/:id"
+                        element={<EditNote />}
+                    />
                 </Route>
 
                 <Route path="/" element={<LoginPageLazy />} />

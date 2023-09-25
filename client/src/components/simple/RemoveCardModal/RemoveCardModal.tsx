@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import React from "react";
 
-import styles from './style.module.css'
+import styles from "./style.module.css";
 
 interface RemoveCardModalProps {
     handleChangeState: (
@@ -10,14 +10,14 @@ interface RemoveCardModalProps {
     handleRemoveNote: () => void;
 }
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 export const RemoveCardModal: React.FC<RemoveCardModalProps> = ({
     handleChangeState,
     handleRemoveNote
 }) => {
     return (
-        <div className={cx("removeCardModal" )}>
+        <div className={cx("removeCardModal")}>
             <div className={cx("wrapper")}>
                 <p>
                     Это действие является необратимым. Хотите ли вы продолжить?
@@ -29,10 +29,7 @@ export const RemoveCardModal: React.FC<RemoveCardModalProps> = ({
                     >
                         Отменить
                     </button>
-                    <button
-                        className={cx("accept")}
-                        onClick={handleRemoveNote}
-                    >
+                    <button className={cx("accept")} onClick={handleRemoveNote}>
                         Подтвердить
                     </button>
                 </div>

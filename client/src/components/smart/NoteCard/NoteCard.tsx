@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { createPortal } from "react-dom";
 import classNames from "classnames/bind";
 import React, { useCallback, useEffect, useRef, useState } from "react";
@@ -6,9 +7,14 @@ import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 import { ReactComponent as ThreeDots } from "../../../assets/images/mainpage/icons/threeDots.svg";
 import { useAuth } from "../../../core/hooks/useAuth";
+import { notesApi } from "../../../core/api/Notes";
+import { IMessage } from "../../../core/types/serverResponses";
+import { Message } from "../../../core/utils/Message";
+import { usePersistNavigate } from "../../../core/hooks/usePersistNavigate";
 
 import { RemoveCardModal } from "../../simple/RemoveCardModal";
 import { CardContextMenu } from "../../simple/CardContextMenu";
+import { clearCache } from "../../../core/utils/clearCache";
 
 interface NoteProps {
     id: number;
@@ -17,14 +23,23 @@ interface NoteProps {
 }
 
 const cx = classNames.bind(styles);
+const { removeNote } = notesApi;
+const { error, success } = Message();
 
 export const NoteCard: React.FC<NoteProps> = ({ id, content, title }) => {
     const { user } = useAuth();
+    const navigate = usePersistNavigate();
 
     const [isShowRemoveModal, setIsShowRemoveModal] = useState<boolean>(false);
     const [isShowContextMenu, setIsShowContextMenu] = useState<boolean>(false);
 
-    //const abortControllerRef = useRef<AbortController | null>(null);
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    useEffect(() => {
+        return () => {
+            abortControllerRef.current?.abort();
+        };
+    }, []);
 
     const listener = useCallback(
         (e: MouseEvent) => {
@@ -60,7 +75,19 @@ export const NoteCard: React.FC<NoteProps> = ({ id, content, title }) => {
 
     // query for removing note
     const handleRemoveNote = async () => {
-        ///
+        try {
+            abortControllerRef.current = new AbortController();
+            await removeNote(id, abortControllerRef.current);
+
+            success("Заметка удалена!");
+            clearCache();
+            navigate(0);
+        } catch (e) {
+            console.error(e);
+
+            const err = e as AxiosError<IMessage>;
+            error(err.response?.data.message || "Произошла ошибка");
+        }
     };
 
     return (

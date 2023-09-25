@@ -2,10 +2,14 @@ import { Api } from "../configs/api";
 import { INote } from "../models/notes";
 
 class NotesApi {
-    async allNotes(userId: string) {
+    async getAllNotes(userId: string) {
         const response = await Api.get<INote[]>(`/api/notes?userId=${userId}`);
         return response;
     }
+
+    async removeNote(noteId: number, { signal }: AbortController) {
+        await Api.delete(`/api/notes/${noteId}`, { signal });
+    }
 }
 
-export const useNotesApi = new NotesApi();
+export const notesApi = new NotesApi();
