@@ -56,6 +56,41 @@ paths:
                 "200":
                     description: Return notes
                     $ref: "#/components/responses/allNotes"
+    /api/notes/<id>:
+        delete:
+            tags:
+                - "Notes"
+            summary: Deletes a note by its ID
+            parameters:
+                - in: header
+                  schema:
+                      type: string
+                  name: Authorization token
+                  description: "Authorization: Bearer <token>"
+                  required: true
+            responses:
+                "200":
+                    description: Note successfull removed
+    /api/notes?userId=<USER_ID>:
+        post:
+            tags:
+                - "Notes"
+            summary: Creates new note
+            parameters:
+                - in: header
+                  schema:
+                      type: string
+                  name: Authorization token
+                  description: "Authorization: Bearer <token>"
+                  required: true
+                - in: path
+                  schema:
+                      type: string
+                  name: User id
+                  required: true
+            responses:
+                "200":
+                    description: Creates new note
 
 components:
     requestBodies:

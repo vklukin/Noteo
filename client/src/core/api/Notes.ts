@@ -15,9 +15,10 @@ class NotesApi {
 
     async createNote(
         noteData: IDataForCreateNote,
+        userId: string | number,
         { signal }: AbortController
     ) {
-        await Api.post("/api/notes", noteData, { signal });
+        await Api.post(`/api/notes?userId=${userId}`, noteData, { signal });
     }
 }
 

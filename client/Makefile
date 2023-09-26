@@ -4,7 +4,7 @@ start:
 
 # start prettier
 pretty:
-	npm run prettier
+	npm run pretty
 
 # start linter
 lint:

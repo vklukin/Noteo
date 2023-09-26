@@ -64,6 +64,7 @@ export const CreateNoteForm = () => {
             abortControllerRef.current = new AbortController();
             await createNote(
                 { heading: heading.value, content: textarea.value },
+                user?.id || "0",
                 abortControllerRef.current
             );
 
