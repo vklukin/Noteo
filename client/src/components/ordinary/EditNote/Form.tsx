@@ -1,25 +1,38 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
-import { AxiosError } from "axios";
 import classNames from "classnames/bind";
+import { AxiosError } from "axios";
+import { useParams } from "react-router-dom";
 
 import styles from "../formsStyle.module.css";
 import { IInputState } from "../../../core/types/inputs";
-import { IMessageError } from "../../../core/models/serverResponse";
-import { Message } from "../../../core/utils/Message";
 import { usePersistNavigate } from "../../../core/hooks/usePersistNavigate";
-import { useAuth } from "../../../core/hooks/useAuth";
+import { isFormOfEditionValid } from "./validation";
 import { notesApi } from "../../../core/api/Notes";
-import { isFormOfCreationValid } from "./validation";
+import { Message } from "../../../core/utils/Message";
+import { IMessageError } from "../../../core/models/serverResponse";
+import { clearCache } from "../../../core/utils/clearCache";
+import { useAuth } from "../../../core/hooks/useAuth";
+import { queryKeys } from "../../../core/configs/QueryClient/queryKeys";
+
+import { Spinner } from "../../simple/Spinner";
 
 const cx = classNames.bind(styles);
 const { error, success } = Message();
-const { createNote } = notesApi;
+const { getNote, editNote } = notesApi;
+const { SOLO_NOTE } = queryKeys;
 
-export const CreateNoteForm = () => {
+export const EditNoteForm = () => {
     const navigate = usePersistNavigate();
+    const { id } = useParams();
     const { user } = useAuth();
 
     const abortControllerRef = useRef<AbortController | null>(null);
+
+    const { data, isLoading } = useQuery([SOLO_NOTE, id], () => {
+        abortControllerRef.current = new AbortController();
+        return getNote(id || 0, user?.id || 0, abortControllerRef.current);
+    });
 
     useEffect(() => {
         return () => {
@@ -36,6 +49,17 @@ export const CreateNoteForm = () => {
         errorText: ""
     });
 
+    useEffect(() => {
+        if (!isLoading && data?.data) {
+            setHeading({ value: data.data.title, errorText: "" });
+            setTextarea({ value: data.data.content, errorText: "" });
+        }
+    }, [data, isLoading]);
+
+    if (isLoading) {
+        return <Spinner />;
+    }
+
     // change state on input
     const states = {
         heading: setHeading,
@@ -49,12 +73,12 @@ export const CreateNoteForm = () => {
         };
     };
 
-    // create note api call
-    const handleCreateNote = async () => {
+    // on submitting form
+    const handleSubmitForm = async () => {
         if (
-            !isFormOfCreationValid(
+            !isFormOfEditionValid(
                 { heading, setHeading },
-                { textarea, setTextarea }
+                { setTextarea, textarea }
             )
         ) {
             return;
@@ -62,24 +86,26 @@ export const CreateNoteForm = () => {
 
         try {
             abortControllerRef.current = new AbortController();
-            await createNote(
-                { heading: heading.value, content: textarea.value },
-                user?.id || "0",
+            await editNote(
+                { title: heading.value, content: textarea.value },
+                id || 0,
+                user?.id || 0,
                 abortControllerRef.current
             );
 
+            clearCache();
             navigate(`/${user?.id || "0"}/notes`);
-            success("Заметка создана!");
+            success("Заметка были изменена");
         } catch (e) {
             console.error(e);
 
             const err = e as AxiosError<IMessageError>;
-            error(err.response?.data.message || "Произошла ошибка");
+            error(err?.response?.data.message || "Произошла ошибка");
         }
     };
 
     return (
-        <form className={cx("form")} onSubmit={handleCreateNote}>
+        <form className={cx("form")} onSubmit={handleSubmitForm}>
             <div className={cx("input-wrapper", "grid-input-heading")}>
                 <label htmlFor="heading">Заголовок</label>
                 <input

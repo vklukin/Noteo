@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 
 import { BackButton } from "../../../components/ui/BackButton";
-import { CreateNoteForm } from "../../../components/ordinary/CreateNote";
+import { EditNoteForm } from "../../../components/ordinary/EditNote";
 
-const CreateNote = () => {
+function EditNote() {
     useEffect(() => {
-        document.title = "Создание заметки";
+        document.title = "Редактирование заметки";
     }, []);
 
     return (
         <main className="create">
             <BackButton />
-            <CreateNoteForm />
+            <EditNoteForm />
         </main>
     );
-};
+}
 
-export default CreateNote;
+export default EditNote;

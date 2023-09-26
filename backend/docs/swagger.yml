@@ -56,7 +56,7 @@ paths:
                 "200":
                     description: Return notes
                     $ref: "#/components/responses/allNotes"
-    /api/notes/<id>:
+    /api/notes/<id>?userId=<USER_ID>:
         delete:
             tags:
                 - "Notes"
@@ -91,6 +91,46 @@ paths:
             responses:
                 "200":
                     description: Creates new note
+    /api/notes/<noteId>?userId=<USER_ID>:
+        get:
+            tags:
+                - "Notes"
+            summary: Gives solo note for user
+            parameters:
+                - in: header
+                  schema:
+                      type: string
+                  name: Authorization token
+                  description: "Authorization: Bearer <token>"
+                  required: true
+                - in: path
+                  schema:
+                      type: string
+                  name: User id
+                  required: true
+            responses:
+                "200":
+                    description: Gives note for user
+    /api/notes/<note_id>?userId=<USER_ID>:
+        put:
+            tags:
+                - "Notes"
+            summary: Changing data of the note
+            parameters:
+                - in: header
+                  schema:
+                      type: string
+                  name: Authorization token
+                  description: "Authorization: Bearer <token>"
+                  required: true
+                - in: path
+                  schema:
+                      type: string
+                  name: User id
+                  required: true
+            responses:
+                "200":
+                    description: Changing the note data
 
 components:
     requestBodies:

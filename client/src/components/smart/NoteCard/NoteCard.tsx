@@ -77,7 +77,7 @@ export const NoteCard: React.FC<NoteProps> = ({ id, content, title }) => {
     const handleRemoveNote = async () => {
         try {
             abortControllerRef.current = new AbortController();
-            await removeNote(id, abortControllerRef.current);
+            await removeNote(id, user?.id || 0, abortControllerRef.current);
 
             success("Заметка удалена!");
             clearCache();

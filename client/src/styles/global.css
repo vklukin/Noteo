@@ -95,3 +95,11 @@ button[type="submit"]:disabled {
     background: var(--baseTextColorHover) !important;
     cursor: not-allowed !important;
 }
+
+main.create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}

@@ -7,7 +7,7 @@ import { RegistrationPageLazy } from "../pages/public/Authorization/Registration
 import { NotFoundPageLazy } from "../pages/public/404";
 import { MainPageLazy } from "../pages/private/ShowNotes";
 import { CreateNotePageLazy } from "../pages/private/CreateNote";
-import EditNote from "../pages/EditNote";
+import { EditNotePageLazy } from "../pages/private/EditNote";
 
 export const Router = () => {
     return (
@@ -21,7 +21,7 @@ export const Router = () => {
                     />
                     <Route
                         path="/:userId/note/edit/:id"
-                        element={<EditNote />}
+                        element={<EditNotePageLazy />}
                     />
                 </Route>
 
