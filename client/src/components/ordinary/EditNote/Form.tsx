@@ -18,7 +18,7 @@ import { queryKeys } from "../../../core/configs/QueryClient/queryKeys";
 import { Spinner } from "../../simple/Spinner";
 
 const cx = classNames.bind(styles);
-const { error, success } = Message();
+const { error, success } = Message()
 const { getNote, editNote } = notesApi;
 const { SOLO_NOTE } = queryKeys;
 

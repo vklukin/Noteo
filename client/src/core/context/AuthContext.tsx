@@ -3,7 +3,7 @@ import React, { createContext, useCallback, useMemo, useState } from "react";
 import { Api } from "../configs/api";
 import { IUser } from "../models/user";
 import { usePersistNavigate } from "../hooks/usePersistNavigate";
-import { Message } from "../utils/Message";
+import { Message} from "../utils/Message";
 import { clearCache } from "../utils/clearCache";
 
 export interface IAuthContext {
@@ -21,7 +21,7 @@ export interface IAuthProviderProps {
     children: React.ReactNode;
 }
 
-const { success } = Message();
+const { success } = Message()
 
 export const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
     const navigate = usePersistNavigate();

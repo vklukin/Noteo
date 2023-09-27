@@ -18,6 +18,10 @@ start-dev:
 stop-dev:
 	docker compose down
 
-# start only client
+# start only client dev
 start-c:
 	cd client && npm run start
+
+# start only backend dev
+start-b:
+	cd backend && npm run dev

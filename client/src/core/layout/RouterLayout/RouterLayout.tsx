@@ -10,7 +10,7 @@ interface IRouterLayoutProps {
 }
 
 const cx = classNames.bind(styles);
-const { MessageContainer } = Message();
+const { MessageContainer } = Message()
 
 export const RouterLayout: React.FC<IRouterLayoutProps> = ({ children }) => {
     return (

@@ -6,12 +6,12 @@ import styles from "../style.module.css";
 import { useAuth } from "../../../../core/hooks/useAuth";
 import { IMessageError } from "../../../../core/models/serverResponse";
 import { IInputState } from "../../../../core/types/inputs";
-import { Message } from "../../../../core/utils/Message";
+import { Message} from "../../../../core/utils/Message";
 import { Validation } from "../../../../core/utils/Validation";
 import { isRegistrationValid } from "./validation";
 
 const cx = classNames.bind(styles);
-const { error } = Message();
+const { error } = Message()
 const { isEmailValid } = Validation;
 
 export const RegistrationForm = () => {
