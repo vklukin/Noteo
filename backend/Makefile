@@ -12,4 +12,4 @@ lint:
 
 # make pretty and lint
 ppo:
-	npm run pretty && npm run lint
+	make pretty && make lint
