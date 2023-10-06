@@ -20,3 +20,12 @@ export const db = new Sequelize(database ?? "Noteo", username ?? "root", passwor
         idle: 10000
     }
 });
+
+(async () => {
+    try {
+        await db.authenticate();
+        console.log("Connection to the database is successfull!");
+    } catch (e) {
+        console.log(`Bad connection to the database: ${e}`);
+    }
+})();

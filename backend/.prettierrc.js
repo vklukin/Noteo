@@ -5,4 +5,4 @@ module.exports = {
     singleQuote: false,
     printWidth: 100,
     bracketSpacing: true
-}
+};
