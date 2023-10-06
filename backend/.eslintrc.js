@@ -22,6 +22,7 @@ module.exports = {
     },
     plugins: ["@typescript-eslint"],
     rules: {
+        "no-undef": "off",
         "@typescript-eslint/no-var-requires": 0,
         "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
         "@typescript-eslint/no-explicit-any": "off",
