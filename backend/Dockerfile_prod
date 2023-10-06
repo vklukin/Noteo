@@ -1,0 +1,15 @@
+FROM node:lts-alpine
+
+WORKDIR /backend
+
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm install
+COPY . .
+
+EXPOSE 2000
+
+RUN npm run build
+
+CMD ["npm", 'run', "start"]

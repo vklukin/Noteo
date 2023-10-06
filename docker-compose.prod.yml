@@ -43,7 +43,7 @@ services:
       - backend
     build:
       context: ./client
-      dockerfile: Dockerfile-prod
+      dockerfile: Dockerfile_prod
     ports:
       - "3000:3000"
     networks:
