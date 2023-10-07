@@ -23,6 +23,20 @@ paths:
                 $ref: "#/components/requestBodies/login"
             responses:
                 "200":
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    id:
+                                        type: number
+                                        example: 1
+                                    token:
+                                        type: string
+                                        example: sd;lvihasvoihasdvouahspdvopihsadv
+                                    email:
+                                        type: string
+                                        example: example@ex.ex
                     description: User is logged in
     /auth/registration:
         post:

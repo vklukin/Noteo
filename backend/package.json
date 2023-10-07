@@ -2,7 +2,7 @@
     "name": "noteo_backend",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "dist/index.js",
     "scripts": {
         "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
         "start": "node dist/index.js",
@@ -24,6 +24,8 @@
         "sequelize": "^6.33.0"
     },
     "devDependencies": {
+        "@types/bcryptjs": "^2.4.4",
+        "@types/cors": "^2.8.14",
         "@types/express": "^4.17.18",
         "@types/node": "^20.7.0",
         "@typescript-eslint/eslint-plugin": "^6.7.4",

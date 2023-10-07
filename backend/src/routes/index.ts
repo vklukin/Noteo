@@ -1,4 +1,5 @@
-const cors = require("cors");
+import cors from "cors";
+import { Express } from "express";
 
 //notes
 const getRequest = require("./Notes_Manipulation/get");
@@ -12,8 +13,10 @@ const postRegistr = require("./Auth_and_registr/postRegistr");
 const postLogin = require("./Auth_and_registr/postLogin");
 const getUsers = require("./Auth_and_registr/getUsers");
 
-module.exports = function (app) {
-    app.use(cors());
+const Cors = cors();
+
+export default function (app: Express) {
+    app.use(Cors);
 
     //notes
     getRequest(app);
@@ -26,4 +29,4 @@ module.exports = function (app) {
     postRegistr(app);
     postLogin(app);
     getUsers(app);
-};
+}

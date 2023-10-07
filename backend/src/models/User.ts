@@ -1,13 +1,12 @@
 import { DataTypes, Model } from "sequelize";
 
-import { db } from "../db";
-import { EMAIL_REGEXP } from "../../../constants/regExps";
+import { db } from "../configs/db";
+import { EMAIL_REGEXP } from "../constants/regExps";
 
-class User extends Model {}
-
+export class User extends Model {}
 User.init(
     {
-        id: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,

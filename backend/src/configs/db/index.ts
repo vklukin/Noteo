@@ -25,6 +25,8 @@ export const db = new Sequelize(database ?? "Noteo", username ?? "root", passwor
     try {
         await db.authenticate();
         console.log("Connection to the database is successfull!");
+
+        await db.sync({ alter: true });
     } catch (e) {
         console.log(`Bad connection to the database: ${e}`);
     }
