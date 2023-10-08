@@ -29,14 +29,20 @@ paths:
                                 type: object
                                 properties:
                                     id:
-                                        type: number
-                                        example: 1
+                                        type: string
+                                        example: glsdfbpsodw45hb
                                     token:
                                         type: string
                                         example: sd;lvihasvoihasdvouahspdvopihsadv
                                     email:
                                         type: string
                                         example: example@ex.ex
+                                    createdAt:
+                                        type: string
+                                        example: 12-12-2023T12:12:12.000Z
+                                    updatedAt:
+                                        type: string
+                                        example: 12-12-2023T12:12:12.000Z | null
                     description: User is logged in
     /auth/registration:
         post:

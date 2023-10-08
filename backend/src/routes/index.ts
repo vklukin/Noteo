@@ -9,8 +9,8 @@ const getNoteOnId = require("./Notes_Manipulation/getNoteOnId");
 const putUpdateNote = require("./Notes_Manipulation/putUpdateNote");
 
 //users
-const postRegistr = require("./Auth_and_registr/postRegistr");
-const postLogin = require("./Auth_and_registr/postLogin");
+import Registration from "./authentication/registration";
+import Login from "./authentication/login";
 const getUsers = require("./Auth_and_registr/getUsers");
 
 const Cors = cors();
@@ -26,7 +26,7 @@ export default function (app: Express) {
     putUpdateNote(app);
 
     //  users
-    postRegistr(app);
-    postLogin(app);
+    Registration(app);
+    Login(app);
     getUsers(app);
 }

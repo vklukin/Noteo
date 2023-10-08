@@ -1,11 +1,10 @@
 import { Express, Request, Response } from "express";
 
 import { IRegistrationData } from "../../types/user";
-import { isUserExist } from "../../controllers/isUserExist";
-import { UserController } from "../../controllers/User";
-import { encodePassword } from "../../utils/encodePassword";
+import { UserController } from "../../controllers/Users";
+import { PasswordController } from "../../utils/passwordManipulations";
 
-const { Registrate } = UserController;
+const { Registrate, isUserExist } = UserController;
 
 export default function (app: Express) {
     app.post(
@@ -34,7 +33,9 @@ export default function (app: Express) {
             }
 
             try {
-                const registationResponse = await Registrate(email, encodePassword(password));
+                const hashedPassword = new PasswordController(password).encodePassword();
+                const registationResponse = await Registrate(email, hashedPassword);
+
                 return res.status(200).json({ message: registationResponse });
             } catch (e) {
                 return res.status(500).json({
