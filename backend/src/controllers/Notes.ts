@@ -31,4 +31,19 @@ export class NotesController {
             }
         });
     }
+
+    static async deleteNote({ noteId, userId }: ISoloNoteRequestData) {
+        const res = await Notes.destroy({
+            where: {
+                note_id: {
+                    [Op.eq]: noteId
+                },
+                author_id: {
+                    [Op.eq]: userId
+                }
+            }
+        });
+
+        return res > 0;
+    }
 }

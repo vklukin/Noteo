@@ -117,6 +117,15 @@ paths:
             responses:
                 "200":
                     description: Note successfull removed
+                "404":
+                    description: not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "410":
+                    description: note was deleted
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "500":
+                    description: server error
+                    $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes?userId=<USER_ID>:
         post:
             tags:
