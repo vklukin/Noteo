@@ -4,6 +4,7 @@ import { ILoginData, ILoginResponse, IUserAttributes } from "../../types/user";
 import { UserController } from "../../controllers/Users";
 import { PasswordController } from "../../utils/passwordManipulations";
 import { Token } from "../../utils/jwt";
+import { IMessage } from "../../types/messages";
 
 const { GetUser } = UserController;
 const { generateAccess } = Token;
@@ -13,16 +14,16 @@ export default function (app: Express) {
         "/auth/login",
         async (
             req: Request<Record<string, any>, Record<string, any>, ILoginData>,
-            res: Response<ILoginResponse | { message: string }>
+            res: Response<ILoginResponse | IMessage>
         ) => {
             const { email, password } = req.body;
 
             if (!email) {
-                res.status(404).json({ message: "Значение email не должно быть пустым" });
+                res.status(403).json({ message: "Значение email не должно быть пустым" });
                 return;
             }
             if (!password) {
-                res.status(404).json({ message: "Значение password не должно быть пустым" });
+                res.status(403).json({ message: "Значение password не должно быть пустым" });
                 return;
             }
 
@@ -30,7 +31,7 @@ export default function (app: Express) {
                 const candidate = await GetUser(email);
 
                 if (!candidate) {
-                    return res.status(403).json({
+                    return res.status(404).json({
                         message: "Пользователь с таким email адресом не найден"
                     });
                 }

@@ -33,7 +33,7 @@ paths:
                                         example: glsdfbpsodw45hb
                                     token:
                                         type: string
-                                        example: sd;lvihasvoihasdvouahspdvopihsadv
+                                        example: token string
                                     email:
                                         type: string
                                         example: example@ex.ex
@@ -44,6 +44,13 @@ paths:
                                         type: string
                                         example: 12-12-2023T12:12:12.000Z | null
                     description: User is logged in
+                "403":
+                    description: data entered incorrectly
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "404":
+                    description: user not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
+
     /auth/registration:
         post:
             tags:
@@ -55,6 +62,13 @@ paths:
             responses:
                 "200":
                     description: User has create the account
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "403":
+                    description: data entered incorrectly
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "404":
+                    description: user not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes?userId={USER_ID}:
         get:
             tags:
@@ -76,6 +90,9 @@ paths:
                 "200":
                     description: Return notes
                     $ref: "#/components/responses/allNotes"
+                "404":
+                    description: not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes/<id>?userId=<USER_ID>:
         delete:
             tags:
@@ -189,11 +206,21 @@ components:
                             type: object
                             properties:
                                 id:
-                                    type: number
-                                    example: 1
+                                    type: string
+                                    example: adfgbadfb
                                 title:
                                     type: string
                                     example: title
                                 content:
                                     type: string
                                     example: content
+        jsonMessageFromServer:
+            description: Message schema
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            message:
+                                type: string
+                                example: message

@@ -1,69 +1,81 @@
 import {
-    CreationOptional,
-    DataTypes,
+    Column,
+    DataType,
+    HasMany,
     Model,
-    InferAttributes,
-    InferCreationAttributes
-} from "sequelize";
+    Not,
+    PrimaryKey,
+    Table,
+    Unique
+} from "sequelize-typescript";
+import { Optional } from "sequelize";
 
-import { db } from "../../configs/db";
 import { EMAIL_REGEXP } from "../../constants/regExps";
+import Notes from "./Notes";
 
-export class User extends Model<
-    InferAttributes<User>,
-    InferCreationAttributes<User, { omit: "user_id" }>
-> {
-    declare user_id: number;
+interface UsersAttributes {
+    user_id: string;
+    email: string;
+    password: string;
+    author_id: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+interface UsersCreationAttributes
+    extends Optional<UsersAttributes, "user_id" | "createdAt" | "updatedAt"> {}
+
+@Table
+export default class User extends Model<UsersAttributes, UsersCreationAttributes> {
+    @Unique
+    @PrimaryKey
+    @Column({
+        type: DataType.UUID,
+        allowNull: false,
+        autoIncrement: false
+    })
+    declare user_id: string;
+
+    @Not({
+        args: EMAIL_REGEXP,
+        msg: "Значение email введено не корректно."
+    })
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+        validate: {
+            isNull: {
+                msg: "Значение email не должно быть пустое."
+            }
+        }
+    })
     declare email: string;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+        validate: {
+            isNull: {
+                msg: "Значение password не должно быть пустое."
+            }
+        }
+    })
     declare password: string;
 
-    declare createdAt: CreationOptional<Date>;
-    declare updatedAt: CreationOptional<Date>;
+    @Column({
+        type: DataType.DATE,
+        defaultValue: new Date(),
+        allowNull: false
+    })
+    declare createdAt: Date;
+
+    @Column({
+        type: DataType.DATE,
+        defaultValue: null,
+        allowNull: true
+    })
+    declare updatedAt: Date;
+
+    @HasMany(() => Notes, "author_id")
+    declare notes: Notes[];
 }
-User.init(
-    {
-        user_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            autoIncrement: false,
-            primaryKey: true,
-            unique: true
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                not: {
-                    args: EMAIL_REGEXP,
-                    msg: "Значение email введено не корректно."
-                },
-                isNull: {
-                    msg: "Значение email не должно быть пустое."
-                }
-            }
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isNull: {
-                    msg: "Значение password не должно быть пустое."
-                }
-            }
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            defaultValue: new Date(),
-            allowNull: false
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            defaultValue: null,
-            allowNull: true
-        }
-    },
-    {
-        sequelize: db,
-        modelName: "User"
-    }
-);

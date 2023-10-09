@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from "sequelize-typescript";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -18,7 +18,8 @@ export const db = new Sequelize(database ?? "Noteo", username ?? "root", passwor
         max: 5,
         min: 0,
         idle: 10000
-    }
+    },
+    models: [__dirname + "/src/db/models"]
 });
 
 (async () => {

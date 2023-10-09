@@ -3,6 +3,7 @@ import { Express, Request, Response } from "express";
 import { IRegistrationData } from "../../types/user";
 import { UserController } from "../../controllers/Users";
 import { PasswordController } from "../../utils/passwordManipulations";
+import { IMessage } from "../../types/messages";
 
 const { Registrate, isUserExist } = UserController;
 
@@ -11,7 +12,7 @@ export default function (app: Express) {
         "/auth/registration",
         async (
             req: Request<Record<string, any>, Record<string, any>, IRegistrationData>,
-            res: Response
+            res: Response<IMessage>
         ) => {
             const { email, password } = req.body;
 

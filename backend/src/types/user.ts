@@ -9,7 +9,7 @@ export interface ILoginData {
 }
 
 export interface ILoginResponse {
-    id: number;
+    id: string;
     token: string;
     email: string;
     createdAt: Date;
@@ -17,7 +17,7 @@ export interface ILoginResponse {
 }
 
 export interface IUserAttributes {
-    user_id: number;
+    user_id: string;
     email: string;
     password: string;
     createdAt: Date;
