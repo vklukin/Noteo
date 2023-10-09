@@ -3,3 +3,12 @@ export interface INote {
     title: string;
     content: string;
 }
+
+export interface INoteId {
+    noteId: string;
+}
+
+export interface ISoloNoteRequestData {
+    noteId: string;
+    userId: string;
+}

@@ -50,6 +50,9 @@ paths:
                 "404":
                     description: user not found
                     $ref: "#/components/responses/jsonMessageFromServer"
+                "500":
+                    description: server error
+                    $ref: "#/components/responses/jsonMessageFromServer"
 
     /auth/registration:
         post:
@@ -68,6 +71,9 @@ paths:
                     $ref: "#/components/responses/jsonMessageFromServer"
                 "404":
                     description: user not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "500":
+                    description: server error
                     $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes?userId={USER_ID}:
         get:
@@ -92,6 +98,9 @@ paths:
                     $ref: "#/components/responses/allNotes"
                 "404":
                     description: not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "500":
+                    description: server error
                     $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes/<id>?userId=<USER_ID>:
         delete:
@@ -148,6 +157,12 @@ paths:
             responses:
                 "200":
                     description: Gives note for user
+                "404":
+                    description: ids or notes not found
+                    $ref: "#/components/responses/jsonMessageFromServer"
+                "500":
+                    description: server error
+                    $ref: "#/components/responses/jsonMessageFromServer"
     /api/notes/<note_id>?userId=<USER_ID>:
         put:
             tags:

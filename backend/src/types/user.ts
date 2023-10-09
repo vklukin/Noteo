@@ -23,3 +23,7 @@ export interface IUserAttributes {
     createdAt: Date;
     updatedAt: Date | null;
 }
+
+export interface IUserId {
+    userId: string;
+}
