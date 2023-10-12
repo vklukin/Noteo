@@ -2,7 +2,7 @@ import { Op } from "sequelize";
 
 import Notes from "../db/models/Notes";
 import User from "../db/models/User";
-import { ISoloNoteRequestData } from "../types/notes";
+import { INote, ISoloNoteRequestData } from "../types/notes";
 
 export class NotesController {
     static async getAllNotes(userId: string): Promise<Notes[]> {
@@ -45,5 +45,38 @@ export class NotesController {
         });
 
         return res > 0;
+    }
+
+    static async createNote(userId: string, { content, title }: Omit<INote, "id">) {
+        return await Notes.create(
+            {
+                author_id: userId,
+                content,
+                title
+            },
+            { ignoreDuplicates: false }
+        );
+    }
+
+    static async updateNote(userId: string, { content, title, id }: INote) {
+        const [count] = await Notes.update(
+            {
+                content: content,
+                title: title,
+                updatedAt: new Date()
+            },
+            {
+                where: {
+                    author_id: {
+                        [Op.eq]: userId
+                    },
+                    note_id: {
+                        [Op.eq]: id
+                    }
+                }
+            }
+        );
+
+        return count > 0;
     }
 }
