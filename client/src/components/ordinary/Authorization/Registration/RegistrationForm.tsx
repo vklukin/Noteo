@@ -6,13 +6,14 @@ import styles from "../style.module.css";
 import { useAuth } from "../../../../core/hooks/useAuth";
 import { IMessageError } from "../../../../core/models/serverResponse";
 import { IInputState } from "../../../../core/types/inputs";
-import { Message} from "../../../../core/utils/Message";
-import { Validation } from "../../../../core/utils/Validation";
+import { Message } from "../../../../core/utils/Message";
 import { isRegistrationValid } from "./validation";
 
+import { EmailInput } from "../../../ui/Authorization/EmailInput";
+import { PasswordInput } from "../../../ui/Authorization/PasswordInput";
+
 const cx = classNames.bind(styles);
-const { error } = Message()
-const { isEmailValid } = Validation;
+const { error } = Message();
 
 export const RegistrationForm = () => {
     const { registration } = useAuth();
@@ -70,49 +71,18 @@ export const RegistrationForm = () => {
             <form className={cx("form")} onSubmit={handleSubmitForm}>
                 <h1>Регистрация</h1>
                 <div className={cx("inputs")}>
-                    <div className={cx("input-wrapper")}>
-                        <label htmlFor="email">Почта</label>
-                        <input
-                            type="text"
-                            placeholder="Введите почту"
-                            id="email"
-                            required
-                            autoComplete="off"
-                            value={email.value}
-                            className={`input ${cx({
-                                "error-input": !isEmailValid(email.value)
-                            })}`}
-                            onChange={handleChangeState("email")}
-                        />
-                    </div>
-                    <div className={cx("input-wrapper")}>
-                        <label htmlFor="firstPassword">Пароль</label>
-                        <input
-                            type="password"
-                            placeholder="Введите пароль"
-                            id="firstPassword"
-                            required
-                            value={firstPassword.value}
-                            className={`input ${cx({
-                                "error-input": !!firstPassword.errorText
-                            })}`}
-                            onChange={handleChangeState("firstPassword")}
-                        />
-                    </div>
-                    <div className="input-wrapper">
-                        <label htmlFor="secondPassword">Повторите пароль</label>
-                        <input
-                            type="password"
-                            placeholder="Повторите пароль"
-                            required
-                            id="secondPassword"
-                            value={secondPassword.value}
-                            className={`input ${cx({
-                                "error-input": !!secondPassword.errorText
-                            })}`}
-                            onChange={handleChangeState("secondPassword")}
-                        />
-                    </div>
+                    <EmailInput
+                        email={email}
+                        hangleChangeState={handleChangeState("email")}
+                    />
+                    <PasswordInput
+                        password={firstPassword}
+                        hangleChangeState={handleChangeState("firstPassword")}
+                    />
+                    <PasswordInput
+                        password={secondPassword}
+                        hangleChangeState={handleChangeState("secondPassword")}
+                    />
                 </div>
                 <div className={cx("controllers")}>
                     <a href="/">Войти</a>

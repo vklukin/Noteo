@@ -45,6 +45,7 @@ textarea::placeholder {
 
 h1 {
     font-family: var(--Inter-B);
+    font-size: 4rem;
 }
 
 h2,
@@ -70,7 +71,7 @@ textarea {
 
 input,
 textarea {
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     font-size: 1.6rem;
 }
 

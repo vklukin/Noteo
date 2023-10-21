@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import classNames from "classnames/bind";
 
 import styles from "../style.module.css";
@@ -13,9 +13,9 @@ function Login() {
     }, []);
 
     return (
-        <main className={cx("authContainer")}>
+        <div className={cx("formContainer")}>
             <LoginForm />
-        </main>
+        </div>
     );
 }
 

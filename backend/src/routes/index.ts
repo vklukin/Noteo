@@ -9,7 +9,7 @@ import soloNotes from "./notes/soloNotes";
 import registration from "./authentication/registration";
 import login from "./authentication/login";
 
-const Cors = cors();
+const Cors = cors({ origin: "http://localhost:3000" });
 
 export default function (app: Express) {
     app.use(Cors);

@@ -10,14 +10,17 @@ interface IRouterLayoutProps {
 }
 
 const cx = classNames.bind(styles);
-const { MessageContainer } = Message()
+const { MessageContainer } = Message();
 
 export const RouterLayout: React.FC<IRouterLayoutProps> = ({ children }) => {
     return (
         <div className={cx("block__wrapper")}>
             <Header />
             <MessageContainer />
-            <Suspense fallback="Loading...">{children}</Suspense>
+
+            <Suspense fallback="Loading...">
+                <main>{children}</main>
+            </Suspense>
         </div>
     );
 };

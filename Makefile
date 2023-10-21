@@ -7,16 +7,22 @@ docker-prod:
 stop-docker-prod:
 	docker-compose down
 
-
+# build images for docker compose
+build-prod:
+	docker compose -f docker-compose.prod.yml build
 
 # ------------------------- DEVELOPMENT -------------------------
 # start docker compose on dev version
 start-dev:
-	docker compose -f docker-compose.dev.yml up -d 
+	docker compose -f docker-compose.dev.yml up -d && docker compose -f docker-compose.dev.yml logs -tf
 
+# build images for docker compose
+start-dev-b:
+	docker compose -f docker-compose.dev.yml build
+	
 # stop docker compose on dev version
 stop-dev:
-	docker compose down
+	docker compose -f docker-compose.dev.yml down
 
 # start only client dev
 start-c:

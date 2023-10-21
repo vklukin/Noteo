@@ -23,7 +23,7 @@ interface UsersAttributes {
 }
 
 interface UsersCreationAttributes
-    extends Optional<UsersAttributes, "user_id" | "createdAt" | "updatedAt"> {}
+    extends Optional<UsersAttributes, "user_id" | "createdAt" | "updatedAt" | "author_id"> {}
 
 @Table
 export default class User extends Model<UsersAttributes, UsersCreationAttributes> {

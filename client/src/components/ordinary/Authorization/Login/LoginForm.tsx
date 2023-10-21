@@ -4,15 +4,16 @@ import { AxiosError } from "axios";
 
 import styles from "../style.module.css";
 import { Message } from "../../../../core/utils/Message";
-import { Validation } from "../../../../core/utils/Validation";
 import { useAuth } from "../../../../core/hooks/useAuth";
 import { IMessageError } from "../../../../core/models/serverResponse";
 import { IInputState } from "../../../../core/types/inputs";
 import { isLoginFormValid } from "./validation";
 
+import { EmailInput } from "../../../ui/Authorization/EmailInput";
+import { PasswordInput } from "../../../ui/Authorization/PasswordInput";
+
 const cx = classNames.bind(styles);
 const { error } = Message();
-const { isEmailValid } = Validation;
 
 export const LoginForm = () => {
     const { login } = useAuth();
@@ -52,37 +53,18 @@ export const LoginForm = () => {
     };
 
     return (
-        <main className={cx("authContainer")}>
+        <>
             <form className={cx("form")} onSubmit={handleFormSubmit}>
                 <h1>Вход</h1>
                 <div className={cx("inputs")}>
-                    <div className={cx("input-wrapper")}>
-                        <label htmlFor="email">Почта</label>
-                        <input
-                            type="text"
-                            placeholder="Введите почту"
-                            value={email.value}
-                            id="email"
-                            className={`input ${cx({
-                                "error-input": !isEmailValid(email.value)
-                            })}`}
-                            onChange={hangleChangeState("email")}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className={cx("input-wrapper")}>
-                        <label htmlFor="password">Пароль</label>
-                        <input
-                            type="password"
-                            placeholder="Введите пароль"
-                            id="password"
-                            value={password.value}
-                            className={`input ${cx({
-                                "error-input": !!password.errorText
-                            })}`}
-                            onChange={hangleChangeState("password")}
-                        />
-                    </div>
+                    <EmailInput
+                        email={email}
+                        hangleChangeState={hangleChangeState("email")}
+                    />
+                    <PasswordInput
+                        password={password}
+                        hangleChangeState={hangleChangeState("password")}
+                    />
                 </div>
                 <div className={cx("controllers")}>
                     <a href="/registration">Создать аккаунт</a>
@@ -102,6 +84,6 @@ export const LoginForm = () => {
             <p className={cx("errorMessage")}>
                 {email.errorText || password.errorText || ""}
             </p>
-        </main>
+        </>
     );
 };

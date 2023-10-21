@@ -12,9 +12,9 @@ function Registration() {
     }, []);
 
     return (
-        <main className={cx("authContainer")}>
+        <div className={cx("formContainer")}>
             <RegistrationForm />
-        </main>
+        </div>
     );
 }
 

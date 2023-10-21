@@ -4,7 +4,7 @@ services:
   mysqldb:
     container_name: workout-db
     image: mysql:latest
-    restart: unless-stopped
+    restart: always
     env_file:
       - ./.env
     environment:
@@ -23,7 +23,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile_dev
-    restart: unless-stopped
+    restart: always
     env_file:
       - ./.env
     ports:
@@ -44,14 +44,13 @@ services:
   client:
     depends_on:
       - backend
+    restart: always
     build:
       context: ./client
       dockerfile: Dockerfile_dev
     volumes:
       - ./client/node_modules:/client/node_modules
-      - type: bind
-        source: ./client
-        target: /client
+      - ./client:/client
     ports:
       - "3000:3000"
     networks:

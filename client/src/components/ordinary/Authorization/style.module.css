@@ -33,36 +33,6 @@
     margin-bottom: 3.5rem;
 }
 
-.input-wrapper {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-}
-
-.input-wrapper label {
-    background: linear-gradient(
-        180deg,
-        var(--white 70%),
-        var(--white 10%),
-        var(--createNoteInputLabelGradien)
-    );
-
-    position: absolute;
-    top: -1rem;
-    left: 1rem;
-
-    font-size: 1.4rem;
-
-    user-select: none;
-    pointer-events: none;
-}
-
-.input-wrapper input {
-    width: 100%;
-}
-
 .controllers {
     display: flex;
     align-items: center;
@@ -92,6 +62,8 @@
     text-decoration: none;
     font-family: var(--Inter-SB);
     color: var(--base-text-color);
+
+    font-size: 1.6rem;
 }
 
 .controllers a:hover {
