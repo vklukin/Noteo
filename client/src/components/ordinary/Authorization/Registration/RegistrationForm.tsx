@@ -76,10 +76,12 @@ export const RegistrationForm = () => {
                         hangleChangeState={handleChangeState("email")}
                     />
                     <PasswordInput
+                        id="password1"
                         password={firstPassword}
                         hangleChangeState={handleChangeState("firstPassword")}
                     />
                     <PasswordInput
+                        id="password2"
                         password={secondPassword}
                         hangleChangeState={handleChangeState("secondPassword")}
                     />

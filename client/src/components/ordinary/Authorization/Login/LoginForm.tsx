@@ -62,6 +62,7 @@ export const LoginForm = () => {
                         hangleChangeState={hangleChangeState("email")}
                     />
                     <PasswordInput
+                        id="password"
                         password={password}
                         hangleChangeState={hangleChangeState("password")}
                     />

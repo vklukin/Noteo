@@ -104,3 +104,8 @@ main.create {
 
     position: relative;
 }
+
+/* Toastify */
+.Toastify {
+    font-size: 1.6rem;
+}

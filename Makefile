@@ -31,3 +31,6 @@ start-c:
 # start only backend dev
 start-b:
 	cd backend && npm run dev
+
+show-logs:
+	docker compose -f docker-compose.dev.yml logs -tf

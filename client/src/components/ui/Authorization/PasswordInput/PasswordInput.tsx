@@ -9,19 +9,21 @@ const cx = classNames.bind(styles);
 interface Props {
     password: IInputState;
     hangleChangeState?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    id: string;
 }
 
 export const PasswordInput: React.FC<Props> = ({
     password,
-    hangleChangeState
+    hangleChangeState,
+    id
 }) => {
     return (
         <div className={cx("input-wrapper")}>
-            <label htmlFor="password">Пароль</label>
+            <label htmlFor={id}>Пароль</label>
             <input
                 type="password"
                 placeholder="Введите пароль"
-                id="password"
+                id={id}
                 value={password.value}
                 className={`input ${cx({
                     "error-input": !!password.errorText

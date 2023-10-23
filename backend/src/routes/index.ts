@@ -1,5 +1,5 @@
 import cors from "cors";
-import { Express } from "express";
+import express, { Express } from "express";
 
 // notes
 import allNotes from "./notes/allNotes";
@@ -13,6 +13,7 @@ const Cors = cors({ origin: "http://localhost:3000" });
 
 export default function (app: Express) {
     app.use(Cors);
+    app.use(express.json());
 
     // notes
     allNotes(app);

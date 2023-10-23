@@ -14,6 +14,8 @@ export default function (app: Express) {
             req: Request<Record<string, any>, Record<string, any>, IRegistrationData>,
             res: Response<IMessage>
         ) => {
+            console.log(req.body);
+
             const { email, password } = req.body;
 
             if (!email) {

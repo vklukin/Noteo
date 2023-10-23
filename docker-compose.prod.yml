@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   mysqldb:
-    container_name: workout-db
+    container_name: noteo-db
     image: mysql:latest
     restart: always
     env_file:
