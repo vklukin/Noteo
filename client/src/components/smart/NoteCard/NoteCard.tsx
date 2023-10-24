@@ -45,7 +45,7 @@ export const NoteCard: React.FC<NoteProps> = ({ id, content, title }) => {
         (e: MouseEvent) => {
             const target = e.target as HTMLElement;
 
-            if (!target.closest(`div[data-context-id=${id}]`)) {
+            if (!target.closest(`div[data-context-id="${id}"]`)) {
                 setIsShowContextMenu(false);
             }
         },

@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 export const Controls = () => {
     return (
         <div className={cx("controls")}>
-            <Link to="/create">
+            <Link to="/create" className={cx("link")}>
                 <button className={cx("createNoteButton")}>
                     <NewNote />
                     <p>Новая заметка</p>
