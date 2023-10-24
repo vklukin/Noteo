@@ -18,7 +18,7 @@ type IIsRegistrationValidProps = (
     }
 ) => boolean;
 
-const { checkTextLength, isTextEmpty } = Validation;
+const { checkTextLength, isTextEmpty, isEmailValid } = Validation;
 
 export const isRegistrationValid: IIsRegistrationValidProps = (
     { email, setEmail },
@@ -45,6 +45,14 @@ export const isRegistrationValid: IIsRegistrationValidProps = (
         setSecondPassword((prev) => ({
             ...prev,
             errorText: "Поле повтора пароля не должно быть пустое"
+        }));
+        return false;
+    }
+
+    if (!isEmailValid(email.value)) {
+        setEmail((prev) => ({
+            ...prev,
+            errorText: "Почта введена не корректно"
         }));
         return false;
     }

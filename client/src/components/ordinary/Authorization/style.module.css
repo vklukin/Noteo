@@ -1,6 +1,8 @@
 .errorMessage {
     color: var(--reject);
-    font-family: var(--Inter-SB);
+    font-family: var(--Inter-R);
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
 }
 
 .form {

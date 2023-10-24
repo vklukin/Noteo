@@ -103,7 +103,7 @@ export const RegistrationForm = () => {
                     </button>
                 </div>
             </form>
-            <p id="message">
+            <p className={cx("errorMessage")}>
                 {email.errorText ||
                     firstPassword.errorText ||
                     secondPassword.errorText ||

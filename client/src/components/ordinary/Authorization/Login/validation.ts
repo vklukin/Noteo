@@ -14,7 +14,7 @@ type ILoginFormValidationProps = (
     }
 ) => boolean;
 
-const { isTextEmpty, checkTextLength } = Validation;
+const { isTextEmpty, checkTextLength, isEmailValid } = Validation;
 
 export const isLoginFormValid: ILoginFormValidationProps = (
     { email, setEmail },
@@ -32,6 +32,14 @@ export const isLoginFormValid: ILoginFormValidationProps = (
         setPassword((prev) => ({
             ...prev,
             errorText: "Поле пароля не должно быть пустое"
+        }));
+        return false;
+    }
+
+    if (!isEmailValid(email.value)) {
+        setEmail((prev) => ({
+            ...prev,
+            errorText: "Почта введена не корректно"
         }));
         return false;
     }
