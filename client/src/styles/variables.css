@@ -26,4 +26,6 @@
     --remove-card-modal-bg-color: rgba(0, 0, 0, 0.5);
     --card-context-menu-bs-color: 0 0.1rem 0.2rem 0 rgb(60 64 67 / 30%),
         0 0.2rem 0.6rem 0.2rem rgb(60 64 67 / 15%);
+
+    --context-menu-button-hover-color: #f0f0f0;
 }

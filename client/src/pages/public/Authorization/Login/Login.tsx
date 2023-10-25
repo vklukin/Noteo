@@ -1,11 +1,7 @@
 import { useEffect } from "react";
-import classNames from "classnames/bind";
-
-import styles from "../style.module.css";
 
 import { LoginForm } from "../../../../components/ordinary/Authorization/Login";
-
-const cx = classNames.bind(styles);
+import { AuthLayout } from "../../../../core/layout/AuthLayout";
 
 function Login() {
     useEffect(() => {
@@ -13,9 +9,9 @@ function Login() {
     }, []);
 
     return (
-        <div className={cx("formContainer")}>
+        <AuthLayout>
             <LoginForm />
-        </div>
+        </AuthLayout>
     );
 }
 

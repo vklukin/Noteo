@@ -12,7 +12,7 @@ import { notesApi } from "../../../core/api/Notes";
 import { isFormOfCreationValid } from "./validation";
 
 const cx = classNames.bind(styles);
-const { error, success } =Message()
+const { error, success } = Message();
 const { createNote } = notesApi;
 
 export const CreateNoteForm = () => {

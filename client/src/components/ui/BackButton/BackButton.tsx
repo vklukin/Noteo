@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 
 import styles from "./style.module.css";
-import ArrowLeft from "../../../assets/images/mainpage/icons/arrowLeft.svg";
+import { ReactComponent as ArrowLeft } from "../../../assets/images/mainpage/icons/arrowLeft.svg";
 import { usePersistNavigate } from "../../../core/hooks/usePersistNavigate";
 
 const cx = classNames.bind(styles);

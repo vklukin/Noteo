@@ -1,10 +1,7 @@
 import { useEffect } from "react";
-import classNames from "classnames/bind";
 
-import styles from "../style.module.css";
 import { RegistrationForm } from "../../../../components/ordinary/Authorization/Registration";
-
-const cx = classNames.bind(styles);
+import { AuthLayout } from "../../../../core/layout/AuthLayout";
 
 function Registration() {
     useEffect(() => {
@@ -12,9 +9,9 @@ function Registration() {
     }, []);
 
     return (
-        <div className={cx("formContainer")}>
+        <AuthLayout>
             <RegistrationForm />
-        </div>
+        </AuthLayout>
     );
 }
 

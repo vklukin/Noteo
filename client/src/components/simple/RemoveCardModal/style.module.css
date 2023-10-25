@@ -17,7 +17,7 @@
     width: 50rem;
     height: auto;
 
-    padding: 2rem;
+    padding: 3rem;
 
     background-color: var(--white);
 
@@ -41,8 +41,8 @@
     align-items: center;
     justify-content: center;
 
-    width: 30rem;
-    gap: 1rem;
+    width: 40rem;
+    gap: 2rem;
 }
 
 .buttonsWrapper > button {
@@ -50,7 +50,6 @@
 
     padding: 0.5rem 0;
     background: none;
-    border: 0.2rem solid;
     outline: none;
 
     cursor: pointer;
@@ -58,7 +57,7 @@
 }
 
 .cancel {
-    border-color: var(--reject);
+    border: 0.2rem solid var(--reject);
     transition: all 0.1s ease-out;
 }
 
@@ -68,7 +67,7 @@
 }
 
 .accept {
-    border-color: var(--accept);
+    border: 0.2rem solid var(--accept);
     transition: all 0.1s ease-out;
 }
 
