@@ -17,6 +17,8 @@ import { queryKeys } from "../../../core/configs/QueryClient/queryKeys";
 import { Api } from "../../../core/configs/api";
 
 import { Spinner } from "../../simple/Spinner";
+import { TextInput } from "../../ui/FormElements/TextInput";
+import { TextArea } from "../../ui/FormElements/TextArea";
 
 const cx = classNames.bind(styles);
 const { error, success } = Message();
@@ -119,32 +121,26 @@ export const EditNoteForm = () => {
 
     return (
         <form className={cx("form")} onSubmit={handleSubmitForm}>
-            <div className={cx("input-wrapper", "grid-input-heading")}>
-                <label htmlFor="heading">Заголовок</label>
-                <input
-                    type="text"
-                    placeholder="Введите заголовок"
-                    id="heading"
-                    className={cx("input")}
-                    value={heading.value}
-                    onChange={handleChangeState("heading")}
-                />
-                <p className={cx("error")}>{heading.errorText}</p>
-            </div>
-            <div className={cx("input-wrapper", "grid-input-textarea")}>
-                <label htmlFor="textarea">Текст</label>
-                <textarea
-                    placeholder="Введите текст"
-                    id="textarea"
-                    className={cx("input")}
-                    value={textarea.value}
-                    onChange={handleChangeState("textarea")}
-                />
-                <p className={cx("error")}>{textarea.errorText}</p>
-            </div>
+            <TextInput
+                value={heading}
+                hangleChangeState={handleChangeState("heading")}
+                classNameContainer={cx("heading")}
+            />
+            <TextArea
+                value={textarea}
+                hangleChangeState={handleChangeState("textarea")}
+                classNameContainer={cx("textarea")}
+            />
+            <p className={`errorMessage ${cx("errorMessage")}`}>
+                {heading.errorText || textarea.errorText || ""}
+            </p>
 
-            <button type="submit" disabled={!heading.value && !textarea.value}>
-                Создать
+            <button
+                type="submit"
+                className={cx("submitButton")}
+                disabled={!heading.value && !textarea.value}
+            >
+                Изменить
             </button>
         </form>
     );

@@ -111,7 +111,11 @@ export const CreateNoteForm = () => {
                 {heading.errorText || textarea.errorText || ""}
             </p>
 
-            <button type="submit" className={cx("submitButton")}>
+            <button
+                type="submit"
+                className={cx("submitButton")}
+                disabled={!heading.value && !textarea.value}
+            >
                 Создать
             </button>
         </form>
