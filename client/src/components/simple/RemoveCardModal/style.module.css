@@ -1,0 +1,77 @@
+.removeCardModal {
+    position: fixed;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: var(--remove-card-modal-bg-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 50rem;
+    height: auto;
+
+    padding: 3rem;
+
+    background-color: var(--white);
+
+    border-radius: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper p {
+    font-size: 2.6rem;
+    text-align: center;
+
+    margin-bottom: 3rem;
+}
+
+.buttonsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40rem;
+    gap: 2rem;
+}
+
+.buttonsWrapper > button {
+    width: 100%;
+
+    padding: 0.5rem 0;
+    background: none;
+    outline: none;
+
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.cancel {
+    border: 0.2rem solid var(--reject);
+    transition: all 0.1s ease-out;
+}
+
+.cancel:hover {
+    background-color: var(--reject);
+    color: var(--white);
+}
+
+.accept {
+    border: 0.2rem solid var(--accept);
+    transition: all 0.1s ease-out;
+}
+
+.accept:hover {
+    background-color: var(--accept);
+    color: var(--white);
+}

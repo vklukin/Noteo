@@ -1,0 +1,51 @@
+.contextMenu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+    transform: translate(0, 100%);
+
+    width: auto;
+    height: auto;
+
+    background: var(--white);
+    box-shadow: var(--card-context-menu-bs-color);
+    border-radius: 0.1rem;
+
+    padding: 10px 0;
+}
+
+.contextMenu > button {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+
+    border: none;
+    border-radius: 0.1rem;
+    background: none;
+    outline: none;
+
+    font-size: 1.4rem;
+    font-family: var(--Inter-SB);
+
+    cursor: pointer;
+    transition: background-color 0.1s ease-out;
+
+    text-align: left;
+    gap: 0.7rem;
+}
+
+.contextMenu > button:hover {
+    background-color: var(--context-menu-button-hover-color);
+}
+
+.removeButton {
+    color: var(--reject);
+    transition:
+        background-color 0.1s ease-out,
+        color 0.1s ease-out;
+}
+
+.removeButton:hover {
+    background-color: var(--reject) !important;
+    color: var(--white);
+}

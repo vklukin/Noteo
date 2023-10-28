@@ -1,0 +1,15 @@
+.container {
+    height: 100%;
+    padding: 2rem;
+
+    position: relative;
+    overflow-y: auto;
+    overflow-x: none;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-rows: repeat(auto-fill, 24rem);
+    grid-auto-rows: 24rem;
+    justify-content: center;
+    gap: 2rem;
+}

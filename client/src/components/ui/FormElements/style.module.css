@@ -1,0 +1,33 @@
+.input-wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper label {
+    background: var(--white);
+
+    padding: 0 5px;
+
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+
+    font-size: 1.4rem;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    width: 100%;
+}
+
+.input-wrapper textarea {
+    resize: none;
+    height: 100%;
+    overflow: auto;
+}

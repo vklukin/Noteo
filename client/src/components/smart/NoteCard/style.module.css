@@ -1,0 +1,91 @@
+.card {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--border-color);
+
+    padding: 1.5rem;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2.4rem 14rem 1fr;
+    row-gap: 0.7rem;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card p {
+    width: auto;
+    height: auto;
+
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    font-size: 16px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    hyphens: auto;
+    word-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.editCardButton {
+    position: absolute;
+    z-index: 15;
+
+    top: 0;
+    left: 0;
+
+    background-color: var(--createNoteInputLabelGradient);
+
+    width: 100%;
+    height: 83%;
+
+    cursor: default;
+}
+
+.cardControls {
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+
+    border-top: 0.1rem solid var(--placeholder-color);
+
+    width: 100%;
+}
+
+.contextMenuButton {
+    background: none;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+.contextMenuButton svg {
+    user-select: none;
+    pointer-events: none;
+}

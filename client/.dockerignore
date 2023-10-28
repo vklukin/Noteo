@@ -1,0 +1,9 @@
+node_modules
+
+*.md
+.git*
+
+.prettierrc.js
+.prettierignore
+.eslintrc.js
+Makefile

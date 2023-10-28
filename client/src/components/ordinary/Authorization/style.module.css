@@ -1,0 +1,70 @@
+.form {
+    position: relative;
+
+    height: auto;
+    width: 40rem;
+    padding: 2rem;
+
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form h1 {
+    margin-bottom: 3.5rem;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.controllers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.controllers button[type="submit"] {
+    background: var(--base-text-color);
+    outline: none;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+
+    transition:
+        color 0.1s ease-in,
+        background-color 0.1s ease-in;
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.controllers button[type="submit"]:hover {
+    background-color: var(--baseTextColorHover);
+}
+
+.controllers a {
+    text-decoration: none;
+    font-family: var(--Inter-SB);
+    color: var(--base-text-color);
+
+    font-size: 1.6rem;
+}
+
+.controllers a:hover {
+    color: var(--baseTextColorHover);
+}
+
+.error-input {
+    border: 0.1rem solid var(--reject);
+}

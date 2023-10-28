@@ -1,0 +1,32 @@
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 3rem;
+
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+
+    padding: 1rem 2rem;
+
+    font-size: 1.6rem;
+    font-family: "Inter-SB", sans-serif;
+    color: var(--category-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    transition: background-color 0.1s;
+}
+
+.back-button:hover {
+    background-color: var(--back-button-background-hover);
+}
+
+.back-button svg path {
+    stroke: var(--category-color);
+}

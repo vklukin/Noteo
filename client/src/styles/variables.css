@@ -1,0 +1,33 @@
+:root {
+    --white: #fff;
+    --black: #000;
+
+    --base-text-color: #2e0700;
+
+    --placeholder-color: #c2c2c2;
+    --category-color: #5c5c5c;
+    --border-color: #e0e0e0;
+    --accept: #25cc0c;
+    --reject: red;
+    --headerBoxShadow: rgb(218, 218, 218);
+    --createNoteInputLabelGradient: rgba(255, 255, 255, 0);
+    --boardControls: rgb(234, 234, 234);
+    --newNoteButton: #f1f1f1;
+    --loginBoxShadow: rgba(218, 218, 218, 0.47);
+    --baseTextColorHover: #5d3e38;
+
+    --Inter-R: "Inter-R", sans-serif;
+    --Inter-B: "Inter-B", sans-serif;
+    --Inter-SB: "Inter-SB", sans-serif;
+
+    --spinner-bg-color: #ffffffa2;
+    --main-color: rgb(224, 125, 19);
+
+    --remove-card-modal-bg-color: rgba(0, 0, 0, 0.5);
+    --card-context-menu-bs-color: 0 0.1rem 0.2rem 0 rgb(60 64 67 / 30%),
+        0 0.2rem 0.6rem 0.2rem rgb(60 64 67 / 15%);
+
+    --context-menu-button-hover-color: #f0f0f0;
+
+    --back-button-background-hover: #ffe5dd;
+}
