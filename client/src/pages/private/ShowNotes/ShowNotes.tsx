@@ -22,7 +22,7 @@ const ShowNotes = () => {
     const abortControllerRef = useRef<AbortController | null>(null);
 
     useEffect(() => {
-        document.title = "Noteo - заметки";
+        document.title = "Noteo - Заметки";
 
         return () => {
             abortControllerRef.current?.abort();

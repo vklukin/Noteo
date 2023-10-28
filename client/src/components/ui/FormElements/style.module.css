@@ -21,6 +21,13 @@
     pointer-events: none;
 }
 
-.input-wrapper input {
+.input-wrapper input,
+.input-wrapper textarea {
     width: 100%;
+}
+
+.input-wrapper textarea {
+    resize: none;
+    height: 100%;
+    overflow: auto;
 }

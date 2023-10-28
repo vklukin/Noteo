@@ -5,7 +5,7 @@ import { CreateNoteForm } from "../../../components/ordinary/CreateNote";
 
 const CreateNote = () => {
     useEffect(() => {
-        document.title = "Создание заметки";
+        document.title = "Noteo - Создание заметки";
     }, []);
 
     return (

@@ -14,6 +14,7 @@ import { IMessageError } from "../../../core/models/serverResponse";
 import { clearCache } from "../../../core/utils/clearCache";
 import { useAuth } from "../../../core/hooks/useAuth";
 import { queryKeys } from "../../../core/configs/QueryClient/queryKeys";
+import { Api } from "../../../core/configs/api";
 
 import { Spinner } from "../../simple/Spinner";
 
@@ -35,10 +36,20 @@ export const EditNoteForm = () => {
     });
 
     useEffect(() => {
+        const interceptorId = Api.interceptors.response.use(
+            (res) => res,
+            (err: AxiosError) => {
+                if (err.response?.status === 404) {
+                    navigate("/not_found");
+                }
+            }
+        );
+
         return () => {
             abortControllerRef.current?.abort();
+            Api.interceptors.response.eject(interceptorId);
         };
-    }, []);
+    }, [navigate]);
 
     const [heading, setHeading] = useState<IInputState>({
         value: "",
@@ -74,7 +85,9 @@ export const EditNoteForm = () => {
     };
 
     // on submitting form
-    const handleSubmitForm = async () => {
+    const handleSubmitForm = async (e: React.FormEvent) => {
+        e.preventDefault();
+
         if (
             !isFormOfEditionValid(
                 { heading, setHeading },
@@ -130,7 +143,9 @@ export const EditNoteForm = () => {
                 <p className={cx("error")}>{textarea.errorText}</p>
             </div>
 
-            <button>Создать</button>
+            <button type="submit" disabled={!heading.value && !textarea.value}>
+                Создать
+            </button>
         </form>
     );
 };

@@ -10,6 +10,10 @@ import { usePersistNavigate } from "../../../core/hooks/usePersistNavigate";
 import { useAuth } from "../../../core/hooks/useAuth";
 import { notesApi } from "../../../core/api/Notes";
 import { isFormOfCreationValid } from "./validation";
+import { Api } from "../../../core/configs/api";
+
+import { TextInput } from "../../ui/FormElements/TextInput";
+import { TextArea } from "../../ui/FormElements/TextArea";
 
 const cx = classNames.bind(styles);
 const { error, success } = Message();
@@ -22,10 +26,20 @@ export const CreateNoteForm = () => {
     const abortControllerRef = useRef<AbortController | null>(null);
 
     useEffect(() => {
+        const interceptorId = Api.interceptors.response.use(
+            (res) => res,
+            (err: AxiosError) => {
+                if (err.response?.status === 404) {
+                    navigate("/not_found");
+                }
+            }
+        );
+
         return () => {
             abortControllerRef.current?.abort();
+            Api.interceptors.response.eject(interceptorId);
         };
-    }, []);
+    }, [navigate]);
 
     const [heading, setHeading] = useState<IInputState>({
         value: "",
@@ -50,7 +64,9 @@ export const CreateNoteForm = () => {
     };
 
     // create note api call
-    const handleCreateNote = async () => {
+    const handleCreateNote = async (e: React.FormEvent) => {
+        e.preventDefault();
+
         if (
             !isFormOfCreationValid(
                 { heading, setHeading },
@@ -80,31 +96,24 @@ export const CreateNoteForm = () => {
 
     return (
         <form className={cx("form")} onSubmit={handleCreateNote}>
-            <div className={cx("input-wrapper", "grid-input-heading")}>
-                <label htmlFor="heading">Заголовок</label>
-                <input
-                    type="text"
-                    placeholder="Введите заголовок"
-                    id="heading"
-                    className={cx("input")}
-                    value={heading.value}
-                    onChange={handleChangeState("heading")}
-                />
-                <p className={cx("error")}>{heading.errorText}</p>
-            </div>
-            <div className={cx("input-wrapper", "grid-input-textarea")}>
-                <label htmlFor="textarea">Текст</label>
-                <textarea
-                    placeholder="Введите текст"
-                    id="textarea"
-                    className={cx("input")}
-                    value={textarea.value}
-                    onChange={handleChangeState("textarea")}
-                />
-                <p className={cx("error")}>{textarea.errorText}</p>
-            </div>
+            <TextInput
+                value={heading}
+                hangleChangeState={handleChangeState("heading")}
+                classNameContainer={cx("heading")}
+            />
+            <TextArea
+                value={textarea}
+                hangleChangeState={handleChangeState("textarea")}
+                classNameContainer={cx("textarea")}
+            />
 
-            <button>Создать</button>
+            <p className={`errorMessage ${cx("errorMessage")}`}>
+                {heading.errorText || textarea.errorText || ""}
+            </p>
+
+            <button type="submit" className={cx("submitButton")}>
+                Создать
+            </button>
         </form>
     );
 };

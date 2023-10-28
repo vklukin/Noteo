@@ -9,8 +9,8 @@ import { IInputState } from "../../../../core/types/inputs";
 import { Message } from "../../../../core/utils/Message";
 import { isRegistrationValid } from "./validation";
 
-import { EmailInput } from "../../../ui/Authorization/EmailInput";
-import { PasswordInput } from "../../../ui/Authorization/PasswordInput";
+import { EmailInput } from "../../../ui/FormElements/EmailInput";
+import { PasswordInput } from "../../../ui/FormElements/PasswordInput";
 
 const cx = classNames.bind(styles);
 const { error } = Message();
@@ -103,7 +103,7 @@ export const RegistrationForm = () => {
                     </button>
                 </div>
             </form>
-            <p className={cx("errorMessage")}>
+            <p className="errorMessage">
                 {email.errorText ||
                     firstPassword.errorText ||
                     secondPassword.errorText ||

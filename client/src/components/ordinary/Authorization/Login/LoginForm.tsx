@@ -9,8 +9,8 @@ import { IMessageError } from "../../../../core/models/serverResponse";
 import { IInputState } from "../../../../core/types/inputs";
 import { isLoginFormValid } from "./validation";
 
-import { EmailInput } from "../../../ui/Authorization/EmailInput";
-import { PasswordInput } from "../../../ui/Authorization/PasswordInput";
+import { EmailInput } from "../../../ui/FormElements/EmailInput";
+import { PasswordInput } from "../../../ui/FormElements/PasswordInput";
 
 const cx = classNames.bind(styles);
 const { error } = Message();
@@ -82,7 +82,7 @@ export const LoginForm = () => {
                     </button>
                 </div>
             </form>
-            <p className={cx("errorMessage")}>
+            <p className="errorMessage">
                 {email.errorText || password.errorText || ""}
             </p>
         </>

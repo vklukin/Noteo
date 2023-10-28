@@ -96,6 +96,9 @@ export const NoteCard: React.FC<NoteProps> = ({ id, content, title }) => {
                 <Link
                     to={`/${user?.id ?? 0}/note/edit/${id}`}
                     className={cx("editCardButton")}
+                    state={{
+                        from: window.location.href
+                    }}
                 />
                 <h3>{title}</h3>
                 <p>{content}</p>

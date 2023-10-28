@@ -28,4 +28,6 @@
         0 0.2rem 0.6rem 0.2rem rgb(60 64 67 / 15%);
 
     --context-menu-button-hover-color: #f0f0f0;
+
+    --back-button-background-hover: #ffe5dd;
 }

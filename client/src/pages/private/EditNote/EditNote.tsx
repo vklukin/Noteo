@@ -5,7 +5,7 @@ import { EditNoteForm } from "../../../components/ordinary/EditNote";
 
 function EditNote() {
     useEffect(() => {
-        document.title = "Редактирование заметки";
+        document.title = "Noteo - Редактирование заметки";
     }, []);
 
     return (
